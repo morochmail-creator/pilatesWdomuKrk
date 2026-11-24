@@ -31,7 +31,7 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.12;let
 h2{font-size:clamp(1.7rem,6vw,2.4rem);margin-bottom:10px}
 h3{font-size:1.2rem}
 .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
-section{padding:44px 0;scroll-margin-top:60px}
+section{padding:44px 0;scroll-margin-top:100px}
 .steps+.rules{margin-top:18px}
 .eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:12px}
 .lead{color:var(--muted);margin:0 0 26px;font-size:1.05rem}
@@ -43,7 +43,7 @@ section{padding:44px 0;scroll-margin-top:60px}
 .photo{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:var(--soft)}
 .photo img{display:block;width:100%;height:100%;object-fit:cover}
 /* header */
-header{position:sticky;top:0;z-index:20;background:rgba(251,246,240,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar{position:sticky;top:0;z-index:20}header{background:rgba(251,246,240,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
 .logo{font-family:Fraunces,serif;font-weight:600;text-decoration:none;color:var(--ink);font-size:1.2rem}
 .logo{display:flex;align-items:center;gap:8px}
@@ -250,12 +250,12 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 <body>
 <div class="bgfx" id="bgfx" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i>
 <svg viewBox="0 0 1000 1000" preserveAspectRatio="none"><path d="M-50 120 C 200 40, 380 260, 560 180 S 900 60, 1050 220 S 820 520, 600 480 S 180 560, 120 760 S 520 980, 1050 900"/><path d="M1050 80 C 820 160, 760 340, 520 330 S 120 300, -50 470 S 300 760, 560 700 S 960 740, 980 1050"/></svg></div>
-<div class="promo">🎉 <b>Startujemy 7 grudnia 2026</b> · Black Friday: ceny na start <b>taniej o 50 zł</b></div>
+<div class="topbar"><div class="promo">🎉 <b>Startujemy 7 grudnia 2026</b> · promocja <b>−50 zł</b></div>
 <header><div class="wrap">
  <a class="logo" href="#"><img src="logo-znak.png" alt="" width="40" height="30"><b>Pilates <span>w Domu</span></b></a>
  <nav><a class="navlink desk" href="/poradnik/">Poradnik</a><a class="navlink desk" href="#sprzet" data-track="nav-sprzet">Sprzęt</a><a class="navlink" href="#cennik" data-track="nav-cennik">Cennik</a>
  <a class="btn" href="#rezerwacja" data-track="nav-rezerwuj">Zarezerwuj</a></nav>
-</div></header>
+</div></header></div>
 
 <main>
 <!-- 1. HERO: zdjęcia z napisem -->
