@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wynajem reformerów do pilatesu – Kraków</title>
-<meta property="og:image" content="https://pilateswdomukrk.pl/reformer.jpg">
+<meta property="og:image" content="https://pilateswdomukrk.pl/slajd-1.jpg">
 <meta name="description" content="Wynajem reformerów do pilatesu w Krakowie i okolicach (do ~20 km). Dostawa i montaż, rezerwacja online, płatność gotówką.">
 <!-- ANALITYKA: wklej tu kod GoatCounter / Google Analytics / Meta Pixel (instrukcja w INSTRUKCJA.md) -->
 <style>
@@ -24,7 +24,7 @@ nav a.btn{color:#fff}
 .hero{padding:64px 0 48px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(2rem,4.5vw,3rem);line-height:1.15;margin:0 0 16px}
 .hero p{font-size:1.15rem;color:var(--muted);margin:0 0 24px}
-.hero img,.ph{width:100%;aspect-ratio:4/3;border-radius:20px;object-fit:cover;background:var(--soft)}
+.ph{width:100%;aspect-ratio:4/3;border-radius:20px;object-fit:cover;background:var(--soft)}
 .ph{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;text-align:center;padding:20px}
 .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .badge{background:var(--soft);padding:6px 14px;border-radius:999px;font-size:.9rem}
@@ -61,6 +61,29 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
  form{grid-template-columns:1fr;padding:20px}
  .cash{flex-direction:column;align-items:flex-start}
 }
+.car{position:relative;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.car-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track img{flex:0 0 100%;width:100%;aspect-ratio:16/9;object-fit:cover;scroll-snap-align:start;display:block}
+.car-track img.fit{object-fit:contain;padding:12px;background:#fff}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.85);font-size:1.3rem;cursor:pointer;color:var(--ink)}
+.car-prev{left:10px}.car-next{right:10px}
+.car-dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:8px}
+.car-dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(0,0,0,.2);cursor:pointer}
+.car-dots button.on{background:var(--accent)}
+.kal{max-width:520px}
+.kal-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-weight:700}
+.kal-head button{border:1px solid var(--line);background:#fff;border-radius:8px;width:36px;height:36px;cursor:pointer;font-size:1.1rem}
+.kal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:0 12px 12px}
+.kal-grid .dn{font-size:.75rem;color:var(--muted);text-align:center;padding:4px 0}
+.kal-grid .d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:.95rem;background:#eef7ee;color:#1b5e20;border:0;cursor:pointer;font:inherit}
+.kal-grid .d.free:hover{background:#c8e6c9}
+.kal-grid .d.we{background:#fdecea;color:#c62828;text-decoration:line-through;cursor:not-allowed}
+.kal-grid .d.busy{background:#e53935;color:#fff;cursor:not-allowed}
+.kal-grid .d.past{background:transparent;color:#bbb;cursor:default}
+.kal-grid .d.sel{outline:2px solid var(--accent-dark)}
+.kal-leg{display:flex;flex-wrap:wrap;gap:14px;padding:0 16px 16px;font-size:.85rem;color:var(--muted)}
+.kal-leg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
@@ -91,7 +114,16 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
    <span class="badge">💵 Płatność gotówką</span>
   </div>
  </div>
- <img src="reformer.jpg" alt="Reformer do pilatesu Extralink Lifestyle PB1001" width="1200" height="613" style="object-fit:contain;background:#fff;padding:12px">
+ <!-- Karuzela: dodaj kolejne zdjęcia jako <img> w .car-track -->
+ <div class="car" id="car">
+  <div class="car-track">
+   <img src="slajd-1.jpg" alt="Wynajmij reformer do pilatesu od 349 zł miesięcznie – dostawa w Krakowie" width="1200" height="675">
+   <img src="reformer.jpg" class="fit" alt="Reformer do pilatesu Extralink Lifestyle PB1001" width="1200" height="613" loading="lazy">
+  </div>
+  <button class="car-btn car-prev" aria-label="Poprzednie zdjęcie">‹</button>
+  <button class="car-btn car-next" aria-label="Następne zdjęcie">›</button>
+  <div class="car-dots"></div>
+ </div>
 </div>
 
 <section id="oferta">
@@ -166,10 +198,11 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
 <section id="kalendarz" style="background:var(--soft)">
  <div class="wrap">
   <h2>Wolne terminy</h2>
-  <p class="lead">Zajęte dni są zaznaczone w kalendarzu. Wybierz wolny termin i zarezerwuj poniżej.</p>
-  <div id="cal-box" class="card" style="padding:0;overflow:hidden">
-   <!-- KALENDARZ: wklej adres publicznego Kalendarza Google w CAL_SRC w skrypcie na dole strony -->
-   <p id="cal-empty" style="padding:24px;margin:0;color:var(--muted)">Kalendarz dostępności pojawi się wkrótce. Do tego czasu potwierdzamy terminy telefonicznie.</p>
+  <p class="lead">Kliknij wolny dzień, a wpiszemy go do formularza rezerwacji. Dostawy tylko od poniedziałku do piątku.</p>
+  <div class="card kal" style="padding:0">
+   <div class="kal-head"><button type="button" id="kal-prev" aria-label="Poprzedni miesiąc">‹</button><span id="kal-title"></span><button type="button" id="kal-next" aria-label="Następny miesiąc">›</button></div>
+   <div class="kal-grid" id="kal-grid"></div>
+   <div class="kal-leg"><span><i style="background:#eef7ee;box-shadow:inset 0 0 0 1px #a5d6a7"></i>wolne</span><span><i style="background:#e53935"></i>zajęte</span><span><i style="background:#fdecea"></i><s>weekend</s> – brak dostaw</span></div>
   </div>
  </div>
 </section>
@@ -283,15 +316,56 @@ document.querySelectorAll('[data-track]').forEach(function(el){
   document.body.appendChild(sc);
  });
 })();
-// Kalendarz Google (publiczny, tylko „wolny/zajęty”). Wklej tu adres kalendarza:
-var CAL_SRC='';
+// Karuzela zdjęć
 (function(){
- if(!CAL_SRC)return;
- var box=document.getElementById('cal-box'),e=document.getElementById('cal-empty');if(e)e.remove();
- var f=document.createElement('iframe');
- f.src='https://calendar.google.com/calendar/embed?src='+encodeURIComponent(CAL_SRC)+'&ctz=Europe%2FWarsaw&mode=MONTH&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&hl=pl';
- f.style.cssText='border:0;width:100%;height:520px;display:block';f.loading='lazy';f.title='Kalendarz dostępności';
- box.appendChild(f);
+ var c=document.getElementById('car');if(!c)return;
+ var t=c.querySelector('.car-track'),imgs=t.querySelectorAll('img'),dots=c.querySelector('.car-dots'),i=0,timer;
+ if(imgs.length<2){c.querySelectorAll('.car-btn').forEach(function(b){b.style.display='none'});return;}
+ imgs.forEach(function(_,k){var b=document.createElement('button');b.setAttribute('aria-label','Zdjęcie '+(k+1));b.onclick=function(){go(k);restart();};dots.appendChild(b);});
+ function go(k){i=(k+imgs.length)%imgs.length;t.scrollTo({left:i*t.clientWidth,behavior:'smooth'});mark();}
+ function mark(){dots.querySelectorAll('button').forEach(function(b,k){b.classList.toggle('on',k===i)});}
+ t.addEventListener('scroll',function(){var k=Math.round(t.scrollLeft/t.clientWidth);if(k!==i){i=k;mark();}},{passive:true});
+ c.querySelector('.car-prev').onclick=function(){go(i-1);restart();};
+ c.querySelector('.car-next').onclick=function(){go(i+1);restart();};
+ function restart(){clearInterval(timer);timer=setInterval(function(){go(i+1)},5000);}
+ mark();restart();
+})();
+// Kalendarz dostępności
+// ZAJETE: zajęte dni w formacie RRRR-MM-DD. Można podać zakres: ['2026-12-01','2026-12-14'].
+var ZAJETE=[];
+(function(){
+ var grid=document.getElementById('kal-grid');if(!grid)return;
+ var busy={};ZAJETE.forEach(function(z){
+  if(Array.isArray(z)){var d=new Date(z[0]+'T12:00:00'),e=new Date(z[1]+'T12:00:00');while(d<=e){busy[iso(d)]=1;d.setDate(d.getDate()+1);}}
+  else busy[z]=1;});
+ function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+ var M=['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
+ var now=new Date();now.setHours(12,0,0,0);var y=now.getFullYear(),m=now.getMonth(),startY=y,startM=m;
+ function draw(){
+  document.getElementById('kal-title').textContent=M[m]+' '+y;
+  document.getElementById('kal-prev').disabled=(y===startY&&m===startM);
+  var h='';['Pn','Wt','Śr','Cz','Pt','Sb','Nd'].forEach(function(n){h+='<div class="dn">'+n+'</div>';});
+  var first=new Date(y,m,1,12),off=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate();
+  for(var k=0;k<off;k++)h+='<div></div>';
+  for(var d=1;d<=days;d++){
+   var dt=new Date(y,m,d,12),wd=dt.getDay(),key=iso(dt),cls,lab;
+   if(dt<=now){cls='past';lab='minęło';}
+   else if(wd===0||wd===6){cls='we';lab='weekend – brak dostaw';}
+   else if(busy[key]){cls='busy';lab='zajęte';}
+   else {cls='free';lab='wolne';}
+   h+='<button type="button" class="d '+cls+'" data-d="'+key+'" title="'+lab+'" aria-label="'+d+' '+M[m]+': '+lab+'"'+(cls==='free'?'':' disabled')+'>'+d+'</button>';
+  }
+  grid.innerHTML=h;
+ }
+ grid.addEventListener('click',function(e){
+  var b=e.target.closest('.d.free');if(!b)return;
+  grid.querySelectorAll('.sel').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');
+  var od=document.getElementById('od');if(od){od.value=b.dataset.d;od.dispatchEvent(new Event('change'));}
+  var r=document.getElementById('rezerwacja');if(r)r.scrollIntoView({behavior:'smooth'});
+ });
+ document.getElementById('kal-prev').onclick=function(){if(--m<0){m=11;y--;}draw();};
+ document.getElementById('kal-next').onclick=function(){if(++m>11){m=0;y++;}draw();};
+ draw();
 })();
 </script>
 </body>
