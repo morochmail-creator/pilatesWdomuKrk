@@ -68,6 +68,11 @@ header .btn{padding:10px 18px;min-height:0;font-size:.9rem;box-shadow:none}
 .bgfx path{fill:none;stroke:var(--accent);stroke-width:1.4;opacity:.22;stroke-dasharray:3000;stroke-dashoffset:calc(3000 - var(--p)*3000)}
 .bgfx path+path{stroke:var(--sage);opacity:.18;stroke-dashoffset:calc(3000 - var(--p)*2600)}
 @media (prefers-reduced-motion:reduce){.bgfx i,.bgfx path{transform:none!important;stroke-dashoffset:0!important}}
+.promo{background:var(--accent-dark);color:#fff;text-align:center;font-size:.86rem;padding:8px 14px;line-height:1.35}
+.old-price{color:var(--muted);text-decoration:line-through;text-decoration-color:#c8463a;text-decoration-thickness:2px;font-size:1.2rem;font-weight:600;margin-top:8px}
+.old-price+.price{margin-top:0;color:var(--accent-dark)}
+.model-price s,.price-pill s{color:var(--muted);font-weight:500;text-decoration-color:#c8463a;text-decoration-thickness:2px;font-size:.92em}
+.kal-label{padding:16px 16px 0;font-weight:700;font-size:1.05rem}.kal-label span{display:block;font-weight:500;font-size:.85rem;color:var(--muted)}
 /* hero */
 .hero2{position:relative;min-height:min(580px,calc(100svh - 64px));display:flex;align-items:flex-end;overflow:hidden;color:#fff;background:#3b2a24}
 .hero-slides,.hero-ov{position:absolute;inset:0}
@@ -244,6 +249,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 <body>
 <div class="bgfx" id="bgfx" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i>
 <svg viewBox="0 0 1000 1000" preserveAspectRatio="none"><path d="M-50 120 C 200 40, 380 260, 560 180 S 900 60, 1050 220 S 820 520, 600 480 S 180 560, 120 760 S 520 980, 1050 900"/><path d="M1050 80 C 820 160, 760 340, 520 330 S 120 300, -50 470 S 300 760, 560 700 S 960 740, 980 1050"/></svg></div>
+<div class="promo">🎉 <b>Startujemy 7 grudnia 2026</b> · Black Friday: ceny na start <b>taniej o 50 zł</b></div>
 <header><div class="wrap">
  <a class="logo" href="#"><img src="logo-znak.png" alt="" width="40" height="30"><b>Pilates <span>w Domu</span></b></a>
  <nav><a class="navlink desk" href="/poradnik/">Poradnik</a><a class="navlink desk" href="#sprzet" data-track="nav-sprzet">Sprzęt</a><a class="navlink" href="#cennik" data-track="nav-cennik">Cennik</a>
@@ -264,7 +270,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
   <span class="eyebrow">Wynajem reformerów · Kraków</span>
   <h1>Pilates na reformerze, <em>w Twoim salonie</em></h1>
   <p class="sub">Przywieziemy reformer pod drzwi. Ćwiczysz kiedy chcesz, bez dojazdów.</p>
-  <div class="price-pill">od <b>200 zł</b> za 2 tygodnie</div>
+  <div class="price-pill">od <s>250 zł</s> <b>200 zł</b> za 2 tygodnie</div>
   <div class="cta-row">
    <a class="btn" href="#rezerwacja" data-track="hero-rezerwuj">Sprawdź wolny termin</a>
    <a class="btn ghost" href="#cennik">Zobacz cennik</a>
@@ -302,7 +308,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
     <div class="model-body">
      <span class="tag soft">Na start</span>
      <h3>Reformer Classic</h3>
-     <div class="model-price"><span><b>200 zł</b> / 2 tygodnie</span><span><b>350 zł</b> / miesiąc</span></div>
+     <div class="model-price"><span><s>250 zł</s> <b>200 zł</b> / 2 tygodnie</span><span><s>400 zł</s> <b>350 zł</b> / miesiąc</span></div>
      <ul class="specs">
       <li><b>196 × 57 × 73 cm</b><span>wymiary</span></li>
       <li><b>składany</b><span>do ok. 106 × 57 × 24 cm, stoi przy ścianie</span></li>
@@ -326,12 +332,13 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
   <div class="center">
    <span class="eyebrow">Cennik</span>
    <h2>Prosto i uczciwie</h2>
-   <p class="lead">Zacznij od testu. Jeśli się spodoba, po prostu przedłużasz.</p>
+   <p class="lead">Promocja na start i Black Friday: startujemy 7 grudnia 2026, a do tego czasu rezerwujesz w niższej cenie.</p>
   </div>
   <div class="prices">
    <div class="card price-card">
     <span class="tag soft">Na start</span>
     <h3>Test 2 tygodnie</h3>
+    <div class="old-price">250 zł</div>
     <div class="price">200 zł</div>
     <ul><li>Sprawdź, czy to dla Ciebie</li><li>Przedłużenie do miesiąca tylko +150 zł</li><li>Dostawa i montaż</li></ul>
     <a class="btn ghost" href="#rezerwacja" data-pakiet="Test 2 tygodnie – 200 zł">Wybieram test</a>
@@ -339,6 +346,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
    <div class="card price-card best">
     <span class="tag">Najlepszy wybór</span>
     <h3>Miesiąc</h3>
+    <div class="old-price">400 zł</div>
     <div class="price">350 zł <small>/ miesiąc</small></div>
     <ul><li>Mniej niż 3 wejścia do studia</li><li>Ćwiczysz codziennie, jeśli chcesz</li><li>Dostawa i montaż</li></ul>
     <a class="btn" href="#rezerwacja" data-pakiet="Miesiąc – 350 zł">Wybieram miesiąc</a>
@@ -383,6 +391,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
   </div>
   <div class="booking">
    <div class="card kal" id="kalendarz">
+    <div class="kal-label">📅 Wybierz dzień dostawy <span>dostawy od 7 grudnia 2026</span></div>
     <div class="kal-head"><button type="button" id="kal-prev" aria-label="Poprzedni miesiąc">‹</button><span id="kal-title"></span><button type="button" id="kal-next" aria-label="Następny miesiąc">›</button></div>
     <div class="kal-grid" id="kal-grid"></div>
     <div class="kal-leg"><span><i style="background:#e9f2e7;box-shadow:inset 0 0 0 1px #a9cfa3"></i>wolne, kliknij</span><span><i style="background:#d9534f"></i>zajęte</span><span><i style="background:#fbe9e6"></i><s>weekend</s></span></div>
@@ -405,10 +414,10 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
      </select></div>
     <div class="row2">
      <div><label for="od">Dzień dostawy</label><input id="od" name="data_dostawy" type="date" required></div>
-     <div><label for="okno">Godziny</label>
-      <select id="okno" name="okno_dostawy" required><option value="">Wybierz</option><option>8–12</option><option>16–18</option></select></div>
+     <div><label for="okno">Godzina dostawy</label>
+      <select id="okno" name="okno_dostawy" required><option value="">Wybierz godzinę</option><option>8–12</option><option>16–18</option></select></div>
     </div>
-    <div class="err" id="od-err">Dostawy tylko od poniedziałku do piątku.</div>
+    <div class="err" id="od-err">Dostawy od 7 grudnia 2026, od poniedziałku do piątku.</div>
     <div><label for="dost">Dostawa</label>
      <select id="dost" name="dostawa"><option>Kraków – gratis</option><option>Poza Krakowem do ~20 km – +50 zł</option><option>Odbiorę sam(a)</option></select></div>
     <div><label for="adres">Adres lub dzielnica</label><input id="adres" name="adres" required autocomplete="street-address" placeholder="np. Podgórze, ul. …"></div>
@@ -470,10 +479,10 @@ document.querySelectorAll('[data-track]').forEach(function(el){
 // Dzień dostawy: od jutra, tylko pn–pt
 (function(){
  var d=document.getElementById('od'),err=document.getElementById('od-err');if(!d)return;
- var t=new Date();t.setDate(t.getDate()+1);d.min=t.toISOString().slice(0,10);
+ var t=new Date();t.setDate(t.getDate()+1);var st=new Date(2026,11,7,12);if(t<st)t=st;d.min=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
  function check(){var v=d.value;if(!v){err.style.display='none';d.setCustomValidity('');return;}
-  var wd=new Date(v+'T12:00:00').getDay();var bad=(wd===0||wd===6);
-  err.style.display=bad?'block':'none';d.setCustomValidity(bad?'Dostawy tylko od poniedziałku do piątku.':'');}
+  var wd=new Date(v+'T12:00:00').getDay();var bad=(wd===0||wd===6)||v<d.min;
+  err.style.display=bad?'block':'none';d.setCustomValidity(bad?'Dostawy od 7 grudnia 2026, od poniedziałku do piątku.':'');}
  d.addEventListener('change',check);d.addEventListener('input',check);
 })();
 // Linki do sekcji: płynne przewijanie bez "#" w adresie
@@ -539,7 +548,7 @@ var ZAJETE=[];
   else busy[z]=1;});
  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
  var M=['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
- var now=new Date();now.setHours(12,0,0,0);var y=now.getFullYear(),m=now.getMonth(),startY=y,startM=m;
+ var now=new Date();now.setHours(12,0,0,0);var START=new Date(2026,11,7,12);var base=now>START?now:START;var y=base.getFullYear(),m=base.getMonth(),startY=y,startM=m;
  function draw(){
   document.getElementById('kal-title').textContent=M[m]+' '+y;
   document.getElementById('kal-prev').disabled=(y===startY&&m===startM);
@@ -549,6 +558,7 @@ var ZAJETE=[];
   for(var d=1;d<=days;d++){
    var dt=new Date(y,m,d,12),wd=dt.getDay(),key=iso(dt),cls,lab;
    if(dt<=now){cls='past';lab='minęło';}
+   else if(dt<START){cls='past';lab='przed startem (7 grudnia)';}
    else if(wd===0||wd===6){cls='we';lab='weekend – brak dostaw';}
    else if(busy[key]){cls='busy';lab='zajęte';}
    else {cls='free';lab='wolne';}
