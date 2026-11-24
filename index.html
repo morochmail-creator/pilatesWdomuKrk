@@ -69,7 +69,8 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
   <nav>
    <a href="#oferta">Oferta</a>
    <a href="#jak">Jak to działa</a>
-   <a href="#faq">FAQ</a>
+   <a href="#zasady">Zasady</a>
+   <a href="#kalendarz">Terminy</a>
    <a class="btn" href="#rezerwacja" data-track="nav-rezerwuj">Zarezerwuj</a>
   </nav>
  </div>
@@ -114,7 +115,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
   </div>
   <div class="cash">
    <span style="font-size:2rem">💵</span>
-   <div><strong>Płatność tylko gotówką</strong><br>Płacisz przy dostawie. Kaucja zwrotna: [XXX] zł, oddajemy ją w całości przy odbiorze sprzętu.</div>
+   <div><strong>Płatność tylko gotówką</strong><br>Płacisz przy dostawie. Kaucja zwrotna: 350 zł, oddajemy ją w całości przy odbiorze sprzętu.</div>
   </div>
  </div>
 </section>
@@ -137,14 +138,37 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
   <p class="lead">Cztery proste kroki.</p>
   <div class="grid3 steps" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
    <div class="card"><h3>Rezerwujesz</h3><p>Wypełniasz formularz poniżej. Oddzwaniamy w ciągu 24 h, żeby potwierdzić termin.</p></div>
-   <div class="card"><h3>Przywozimy</h3><p>Dostawa i montaż na terenie Krakowa i okolic do ok. 20 km. Odbiór osobisty też możliwy.</p></div>
+   <div class="card"><h3>Przywozimy</h3><p>Od poniedziałku do piątku, rano (8–12) lub wieczorem (16–18). Kraków i okolice do ok. 20 km.</p></div>
    <div class="card"><h3>Ćwiczysz</h3><p>Pokazujemy podstawy i dajemy zestaw ćwiczeń na start.</p></div>
    <div class="card"><h3>Odbieramy</h3><p>Na koniec okresu odbieramy sprzęt i zwracamy kaucję. Albo przedłużasz.</p></div>
   </div>
  </div>
 </section>
 
-<section id="rezerwacja" style="background:var(--soft)">
+<section id="zasady">
+ <div class="wrap">
+  <h2>Zasady wynajmu</h2>
+  <p class="lead">Krótko i jasno, żeby nie było niespodzianek.</p>
+  <div class="grid3">
+   <div class="card"><h3>🚚 Dostawa i odbiór</h3><ul><li>Od poniedziałku do piątku</li><li>Rano: 8:00–12:00</li><li>Wieczorem: 16:00–18:00</li><li>Okno wybierasz w formularzu</li></ul></div>
+   <div class="card"><h3>💵 Płatność</h3><ul><li>Tylko gotówka, przy dostawie</li><li>Kaucja zwrotna: <strong>350 zł</strong></li><li>Kaucję oddajemy przy odbiorze sprzętu</li></ul></div>
+   <div class="card"><h3>📅 Okres wynajmu</h3><ul><li>Test 2 tygodnie: 199 zł</li><li>Przedłużenie do miesiąca: +149 zł</li><li>Miesiąc: 349 zł</li><li>Rezerwację potwierdzamy telefonicznie</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<section id="kalendarz" style="background:var(--soft)">
+ <div class="wrap">
+  <h2>Wolne terminy</h2>
+  <p class="lead">Zajęte dni są zaznaczone w kalendarzu. Wybierz wolny termin i zarezerwuj poniżej.</p>
+  <div id="cal-box" class="card" style="padding:0;overflow:hidden">
+   <!-- KALENDARZ: wklej adres publicznego Kalendarza Google w CAL_SRC w skrypcie na dole strony -->
+   <p id="cal-empty" style="padding:24px;margin:0;color:var(--muted)">Kalendarz dostępności pojawi się wkrótce. Do tego czasu potwierdzamy terminy telefonicznie.</p>
+  </div>
+ </div>
+</section>
+
+<section id="rezerwacja">
  <div class="wrap">
   <h2>Rezerwacja</h2>
   <p class="lead">Zostaw dane, a potwierdzimy dostępność i termin telefonicznie. Rezerwacja nic nie kosztuje.</p>
@@ -159,7 +183,13 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
    <div><label for="tel">Telefon *</label><input id="tel" name="telefon" type="tel" required autocomplete="tel" placeholder="np. 600 000 000"></div>
    <div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email"></div>
    <div><label for="miejsce">Miejscowość / dzielnica *</label><input id="miejsce" name="miejscowosc" required placeholder="np. Kraków, Podgórze"></div>
-   <div><label for="od">Od kiedy? *</label><input id="od" name="data_od" type="date" required></div>
+   <div><label for="od">Dzień dostawy (pn–pt) *</label><input id="od" name="data_dostawy" type="date" required><small id="od-err" style="color:#b3261e;display:none">Dostawy tylko od poniedziałku do piątku.</small></div>
+   <div><label for="okno">Godziny dostawy *</label>
+    <select id="okno" name="okno_dostawy" required>
+     <option value="">Wybierz…</option>
+     <option>Rano 8:00–12:00</option>
+     <option>Wieczorem 16:00–18:00</option>
+    </select></div>
    <div><label for="okres">Na jak długo? *</label>
     <select id="okres" name="okres" required>
      <option value="">Wybierz…</option>
@@ -174,7 +204,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
    <div><label for="dost">Dostawa</label>
     <select id="dost" name="dostawa"><option>Dostawa i montaż</option><option>Odbiór osobisty</option></select></div>
    <div class="full"><label for="uwagi">Uwagi (piętro, winda, pytania)</label><textarea id="uwagi" name="uwagi"></textarea></div>
-   <div class="full"><label class="check"><input type="checkbox" name="zgoda" required> Wyrażam zgodę na kontakt w sprawie rezerwacji. Płatność gotówką przy dostawie. *</label></div>
+   <div class="full"><label class="check"><input type="checkbox" name="zgoda" required> Akceptuję <a href="#zasady">zasady wynajmu</a>: płatność gotówką przy dostawie i kaucja zwrotna 350 zł. *</label></div>
    <div class="full"><button class="btn" type="submit" data-track="formularz-wyslij">Wyślij rezerwację</button></div>
   </form>
   <p style="margin-top:18px">Wolisz zadzwonić? <a href="tel:+48000000000" data-track="telefon">[TELEFON]</a> · <a href="mailto:[EMAIL]">[EMAIL]</a></p>
@@ -188,7 +218,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
   <details><summary>Jaki obszar obsługujecie?</summary><p>Kraków i miejscowości do ok. 20 km (m.in. Wieliczka, Skawina, Niepołomice, Zielonki, Michałowice, Liszki). Dalej – zapytaj.</p></details>
   <details><summary>Ile miejsca potrzeba?</summary><p>Ok. [XXX] × [XXX] cm wolnej podłogi. Reformer można też postawić pionowo, gdy nie ćwiczysz (zależnie od modelu).</p></details>
   <details><summary>Czy to dla początkujących?</summary><p>Tak. Na start pokazujemy podstawy i dajemy zestaw ćwiczeń. Możemy też polecić instruktora online lub w Krakowie.</p></details>
-  <details><summary>Co z kaucją?</summary><p>Kaucja [XXX] zł gotówką przy dostawie, zwracana w całości przy odbiorze nieuszkodzonego sprzętu.</p></details>
+  <details><summary>Co z kaucją?</summary><p>Kaucja 350 zł gotówką przy dostawie, zwracana w całości przy odbiorze nieuszkodzonego sprzętu.</p></details>
  </div>
 </section>
 </main>
@@ -207,7 +237,25 @@ document.querySelectorAll('[data-track]').forEach(function(el){
  });
 });
 // Nie pozwól wybrać daty z przeszłości
-(function(){var d=document.getElementById('od');if(d)d.min=new Date().toISOString().slice(0,10);})();
+// Dzień dostawy: od jutra, tylko pn–pt
+(function(){
+ var d=document.getElementById('od'),err=document.getElementById('od-err');if(!d)return;
+ var t=new Date();t.setDate(t.getDate()+1);d.min=t.toISOString().slice(0,10);
+ function check(){var v=d.value;if(!v){err.style.display='none';d.setCustomValidity('');return;}
+  var wd=new Date(v+'T12:00:00').getDay();var bad=(wd===0||wd===6);
+  err.style.display=bad?'block':'none';d.setCustomValidity(bad?'Dostawy tylko od poniedziałku do piątku.':'');}
+ d.addEventListener('change',check);d.addEventListener('input',check);
+})();
+// Kalendarz Google (publiczny, tylko „wolny/zajęty”). Wklej tu adres kalendarza:
+var CAL_SRC='';
+(function(){
+ if(!CAL_SRC)return;
+ var box=document.getElementById('cal-box'),e=document.getElementById('cal-empty');if(e)e.remove();
+ var f=document.createElement('iframe');
+ f.src='https://calendar.google.com/calendar/embed?src='+encodeURIComponent(CAL_SRC)+'&ctz=Europe%2FWarsaw&mode=MONTH&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&hl=pl';
+ f.style.cssText='border:0;width:100%;height:520px;display:block';f.loading='lazy';f.title='Kalendarz dostępności';
+ box.appendChild(f);
+})();
 </script>
 </body>
 </html>
