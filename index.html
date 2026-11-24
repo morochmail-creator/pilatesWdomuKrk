@@ -60,6 +60,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
  .cash{flex-direction:column;align-items:flex-start}
 }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
 
@@ -83,7 +84,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
   <p>Ćwicz pilates na profesjonalnym reformerze bez kupowania sprzętu za kilkanaście tysięcy złotych. Przywozimy, montujemy i pokazujemy, jak zacząć.</p>
   <a class="btn" href="#rezerwacja" data-track="hero-rezerwuj">Sprawdź termin i zarezerwuj</a>
   <div class="badges">
-   <span class="badge">🚚 Dostawa i montaż</span>
+   <span class="badge">🚚 Darmowa dostawa w Krakowie</span>
    <span class="badge">📍 Kraków + ok. 20 km</span>
    <span class="badge">💵 Płatność gotówką</span>
   </div>
@@ -150,10 +151,14 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
   <h2>Zasady wynajmu</h2>
   <p class="lead">Krótko i jasno, żeby nie było niespodzianek.</p>
   <div class="grid3">
-   <div class="card"><h3>🚚 Dostawa i odbiór</h3><ul><li>Od poniedziałku do piątku</li><li>Rano: 8:00–12:00</li><li>Wieczorem: 16:00–18:00</li><li>Okno wybierasz w formularzu</li></ul></div>
+   <div class="card"><h3>🚚 Dostawa i odbiór</h3><ul><li><strong>W Krakowie: gratis</strong></li><li>Poza Krakowem (do ok. 20 km): +50 zł</li><li>Od poniedziałku do piątku</li><li>Rano: 8:00–12:00</li><li>Wieczorem: 16:00–18:00</li><li>Okno wybierasz w formularzu</li></ul></div>
    <div class="card"><h3>💵 Płatność</h3><ul><li>Tylko gotówka, przy dostawie</li><li>Kaucja zwrotna: <strong>350 zł</strong></li><li>Kaucję oddajemy przy odbiorze sprzętu</li></ul></div>
    <div class="card"><h3>📅 Okres wynajmu</h3><ul><li>Test 2 tygodnie: 199 zł</li><li>Przedłużenie do miesiąca: +149 zł</li><li>Miesiąc: 349 zł</li><li>Rezerwację potwierdzamy telefonicznie</li></ul></div>
   </div>
+  <details id="mapa-box" style="margin-top:20px"><summary>🗺️ Zobacz mapę – gdzie dostawa jest darmowa</summary>
+   <div id="mapa" style="height:420px;border-radius:12px;margin-top:12px;background:var(--soft)"></div>
+   <p style="font-size:.9rem;color:var(--muted);margin:10px 0 0">🟩 Zielony obszar: granice Krakowa, dostawa gratis. Przerywana linia: ok. 20 km, dostawa +50 zł. Dalej zapytaj.</p>
+  </details>
  </div>
 </section>
 
@@ -202,7 +207,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
    <div><label for="ile">Ile reformerów?</label>
     <select id="ile" name="ilosc"><option>1</option><option>2</option><option>3+ (studio / trener)</option></select></div>
    <div><label for="dost">Dostawa</label>
-    <select id="dost" name="dostawa"><option>Dostawa i montaż</option><option>Odbiór osobisty</option></select></div>
+    <select id="dost" name="dostawa"><option>Dostawa w Krakowie (gratis)</option><option>Dostawa poza Krakowem, do ok. 20 km (+50 zł)</option><option>Odbiór osobisty</option></select></div>
    <div class="full"><label for="uwagi">Uwagi (piętro, winda, pytania)</label><textarea id="uwagi" name="uwagi"></textarea></div>
    <div class="full"><label class="check"><input type="checkbox" name="zgoda" required> Akceptuję <a href="#zasady">zasady wynajmu</a>: płatność gotówką przy dostawie i kaucja zwrotna 350 zł. *</label></div>
    <div class="full"><button class="btn" type="submit" data-track="formularz-wyslij">Wyślij rezerwację</button></div>
@@ -215,7 +220,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
  <div class="wrap">
   <h2>Najczęstsze pytania</h2>
   <details><summary>Czy mogę zapłacić kartą lub przelewem?</summary><p>Nie. Przyjmujemy wyłącznie gotówkę, płatną przy dostawie.</p></details>
-  <details><summary>Jaki obszar obsługujecie?</summary><p>Kraków i miejscowości do ok. 20 km (m.in. Wieliczka, Skawina, Niepołomice, Zielonki, Michałowice, Liszki). Dalej – zapytaj.</p></details>
+  <details><summary>Jaki obszar obsługujecie?</summary><p>W granicach Krakowa dostawa jest darmowa. Miejscowości do ok. 20 km (+50 zł) (m.in. Wieliczka, Skawina, Niepołomice, Zielonki, Michałowice, Liszki). Dalej – zapytaj.</p></details>
   <details><summary>Ile miejsca potrzeba?</summary><p>Ok. [XXX] × [XXX] cm wolnej podłogi. Reformer można też postawić pionowo, gdy nie ćwiczysz (zależnie od modelu).</p></details>
   <details><summary>Czy to dla początkujących?</summary><p>Tak. Na start pokazujemy podstawy i dajemy zestaw ćwiczeń. Możemy też polecić instruktora online lub w Krakowie.</p></details>
   <details><summary>Co z kaucją?</summary><p>Kaucja 350 zł gotówką przy dostawie, zwracana w całości przy odbiorze nieuszkodzonego sprzętu.</p></details>
@@ -245,6 +250,27 @@ document.querySelectorAll('[data-track]').forEach(function(el){
   var wd=new Date(v+'T12:00:00').getDay();var bad=(wd===0||wd===6);
   err.style.display=bad?'block':'none';d.setCustomValidity(bad?'Dostawy tylko od poniedziałku do piątku.':'');}
  d.addEventListener('change',check);d.addEventListener('input',check);
+})();
+// Mapa darmowej dostawy (ładuje się dopiero po otwarciu)
+(function(){
+ var box=document.getElementById('mapa-box'),done=false;if(!box)return;
+ box.addEventListener('toggle',function(){
+  if(!box.open||done)return;done=true;
+  var sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+  sc.onload=function(){
+   var c=[50.0614,19.9366];
+   var m=L.map('mapa',{scrollWheelZoom:false}).setView(c,10);
+   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(m);
+   L.circle(c,{radius:20000,color:'#8f5f69',weight:2,dashArray:'6 6',fill:false}).addTo(m).bindTooltip('Do ok. 20 km: +50 zł');
+   function draw(g){var l=L.geoJSON(g,{style:{color:'#2e7d32',weight:2,fillColor:'#4caf50',fillOpacity:.25}}).addTo(m).bindTooltip('Kraków: dostawa gratis');m.fitBounds(L.circle(c,{radius:20000}).addTo(m).getBounds());}
+   var key='krk-granice-v1',g=null;try{g=JSON.parse(localStorage.getItem(key));}catch(e){}
+   if(g){draw(g);return;}
+   fetch('https://nominatim.openstreetmap.org/search?city=Krak%C3%B3w&country=Poland&format=geojson&polygon_geojson=1&polygon_threshold=0.002&limit=1')
+    .then(function(r){return r.json();}).then(function(j){var geo=j.features[0].geometry;draw(geo);try{localStorage.setItem(key,JSON.stringify(geo));}catch(e){}})
+    .catch(function(){L.circle(c,{radius:9000,color:'#2e7d32',fillColor:'#4caf50',fillOpacity:.25}).addTo(m).bindTooltip('Kraków: dostawa gratis');});
+  };
+  document.body.appendChild(sc);
+ });
 })();
 // Kalendarz Google (publiczny, tylko „wolny/zajęty”). Wklej tu adres kalendarza:
 var CAL_SRC='';
