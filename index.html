@@ -31,7 +31,8 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.12;let
 h2{font-size:clamp(1.7rem,6vw,2.4rem);margin-bottom:10px}
 h3{font-size:1.2rem}
 .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
-section{padding:56px 0;scroll-margin-top:60px}
+section{padding:44px 0;scroll-margin-top:60px}
+.steps+.rules{margin-top:18px}
 .eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:12px}
 .lead{color:var(--muted);margin:0 0 26px;font-size:1.05rem}
 .center{text-align:center}.center .lead{max-width:560px;margin-left:auto;margin-right:auto}
@@ -113,6 +114,7 @@ header .btn{padding:10px 18px;min-height:0;font-size:.9rem;box-shadow:none}
 .rules li{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
 .rules .ic{font-size:1.5rem;line-height:1.2}
 .rules b{display:block}
+.rules{grid-template-columns:1fr 1fr}.rules li{flex-direction:column;gap:6px;padding:14px}.rules span{font-size:.88rem;line-height:1.4;display:block}
 .rules span{color:var(--muted);font-size:.93rem}
 details.map{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
 details summary{cursor:pointer;font-weight:700;list-style:none}
@@ -203,7 +205,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
  .prices{grid-template-columns:1fr 1fr}
  .steps{grid-template-columns:repeat(3,1fr)}
  .steps li{padding:76px 22px 22px}
- .rules{grid-template-columns:1fr 1fr}
+ .rules{grid-template-columns:repeat(4,1fr)}
  .product{grid-template-columns:1fr 1fr;gap:48px}
  .booking{grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
  .final{padding:56px}
@@ -238,55 +240,13 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
  </div>
 </div>
 
-<!-- 2. TRUST BAND -->
-<div class="band"><div class="wrap"><ul>
- <li><span class="i">🚚</span>Dostawa pod drzwi</li>
- <li><span class="i">🛠️</span>Montaż na miejscu</li>
- <li><span class="i">🗓️</span>Już od 2 tygodni</li>
- <li><span class="i">💵</span>Płatność gotówką</li>
-</ul></div></div>
-
-<!-- 3. DLACZEGO WYNAJEM -->
-<section>
- <div class="wrap">
-  <div class="center">
-   <span class="eyebrow">Po co kupować?</span>
-   <h2>Najprostszy sposób na pilates w domu</h2>
-   <p class="lead">Porównaj. Wynajem łączy wygodę własnego sprzętu z ceną, która nie boli.</p>
-  </div>
-  <div class="compare">
-   <div class="cmp"><h3>Zakup reformera</h3><div class="big">duży wydatek</div><ul><li>Sporo pieniędzy na start</li><li>Nie wiesz, czy Ci się spodoba</li></ul></div>
-   <div class="cmp"><h3>Zajęcia w studio</h3><div class="big">dojazdy i grafik</div><ul><li>Ćwiczysz tylko w godzinach zajęć</li><li>Miesiąc wynajmu to mniej niż 3 wejścia</li></ul></div>
-   <div class="cmp win"><h3>Wynajem u nas</h3><div class="big">od 200 zł</div><ul><li>Reformer w domu, kiedy chcesz</li><li>Wypróbuj przez 2 tygodnie</li><li>Przedłużasz, kiedy chcesz</li></ul></div>
-  </div>
- </div>
-</section>
-
-<!-- 4. KORZYŚCI -->
-<section style="background:var(--soft)">
- <div class="wrap benefits">
-  <div class="photo"><img src="foto-wygoda.jpg" alt="Różne ćwiczenia na reformerze w domu" width="1000" height="717" loading="lazy"></div>
-  <div>
-   <span class="eyebrow">Wygoda studia w Twoim salonie</span>
-   <h2>Ćwicz, kiedy masz ochotę</h2>
-   <p class="lead">Rano przed pracą, wieczorem po kolacji, w piżamie. Reformer czeka na Ciebie w domu.</p>
-   <div class="bgrid">
-    <div class="b"><span class="i">🌿</span><b>Wypróbuj bez ryzyka</b><span>2 tygodnie na start, żeby sprawdzić, czy to dla Ciebie.</span></div>
-    <div class="b"><span class="i">🏡</span><b>Dostawa pod drzwi</b><span>Przywozimy i montujemy. W Krakowie gratis.</span></div>
-    <div class="b"><span class="i">🔁</span><b>Łatwe przedłużenie</b><span>Spodobało się? Zostaje u Ciebie dłużej.</span></div>
-    <div class="b"><span class="i">💛</span><b>Bez kupowania</b><span>Żadnych kredytów ani sprzedawania sprzętu potem.</span></div>
-   </div>
-  </div>
- </div>
-</section>
-
 <!-- SPRZĘT -->
 <section id="sprzet" style="background:var(--soft)">
  <div class="wrap">
   <div class="center">
    <span class="eyebrow">Nasze reformery</span>
    <h2>Wybierz swój reformer</h2>
-   <p class="lead">Prawdziwy sprzęt jak w studiu: wózek na szynach, sprężyny i linki do ćwiczeń rąk i nóg. Każdy egzemplarz czyścimy i sprawdzamy przed dostawą.</p>
+   <p class="lead">Sprzęt jak w studiu. Każdy egzemplarz czyścimy i sprawdzamy przed dostawą.</p>
   </div>
   <div class="models">
    <article class="card model">
@@ -296,6 +256,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
       <img src="classic-2.jpg" alt="Ćwiczenie podporu na reformerze Classic" width="1000" height="634" loading="lazy">
       <img src="classic-3.jpg" alt="Ćwiczenie z linkami na reformerze Classic" width="933" height="700" loading="lazy">
       <img src="classic-4.jpg" alt="Reformer Classic w salonie" width="1000" height="566" loading="lazy">
+      <img src="foto-wygoda.jpg" alt="Różne ćwiczenia na reformerze Classic" width="1000" height="717" loading="lazy">
       <img src="classic-5.jpg" alt="Złożony reformer Classic stoi przy ścianie" width="1000" height="899" loading="lazy">
      </div>
      <button class="gal-btn prev" type="button" aria-label="Poprzednie zdjęcie">‹</button>
@@ -351,28 +312,18 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
  </div>
 </section>
 
-<!-- 6. JAK TO DZIAŁA -->
-<section style="background:var(--soft)">
+<!-- JAK TO DZIAŁA + ZASADY -->
+<section id="zasady" style="background:var(--soft)">
  <div class="wrap">
   <div class="center">
    <span class="eyebrow">Jak to działa</span>
-   <h2>Trzy kroki do pierwszego treningu</h2>
-   <p class="lead">Bez umawiania się w nieskończoność i bez przelewów.</p>
+   <h2>Trzy kroki do treningu</h2>
   </div>
   <ol class="steps">
    <li><b>Wybierasz termin</b><span>Klikasz wolny dzień w kalendarzu i wysyłasz krótki formularz. Oddzwonimy, żeby potwierdzić.</span></li>
    <li><b>Przywozimy i montujemy</b><span>Od poniedziałku do piątku, rano albo wieczorem. Pokazujemy podstawy, płacisz gotówką.</span></li>
    <li><b>Ćwiczysz</b><span>Na koniec odbieramy sprzęt i oddajemy kaucję. Albo przedłużasz, jeśli wsiąkniesz.</span></li>
   </ol>
- </div>
-</section>
-
-<!-- 7. DOSTAWA -->
-<section id="zasady">
- <div class="wrap">
-  <span class="eyebrow">Dostawa i zasady</span>
-  <h2>Wszystko jasne od początku</h2>
-  <p class="lead">Żadnych gwiazdek i drobnego druku.</p>
   <ul class="rules">
    <li><span class="ic">🕗</span><div><b>Dostawa pn–pt</b><span>Rano 8–12 albo wieczorem 16–18. Wybierasz w formularzu.</span></div></li>
    <li><span class="ic">📍</span><div><b>W Krakowie gratis</b><span>Poza Krakowem, do ok. 20 km: +50 zł.</span></div></li>
@@ -451,16 +402,6 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
  </div>
 </section>
 
-<!-- 11. FINAL CTA -->
-<section>
- <div class="wrap">
-  <div class="final">
-   <h2>Twój pierwszy trening może być już w tym tygodniu</h2>
-   <p>Wybierz termin, a resztą zajmiemy się my.</p>
-   <a class="btn" href="#rezerwacja" data-track="final-rezerwuj">Sprawdź wolny termin</a>
-  </div>
- </div>
-</section>
 </main>
 
 <footer><div class="wrap"><img class="flogo" src="logo.png" alt="Pilates w Domu Kraków – logo" loading="lazy">Pilates w Domu · Wynajem reformerów do pilatesu · Kraków i okolice<br><a href="/poradnik/">Poradnik o pilatesie na reformerze</a> · <a href="#cennik">Cennik</a><span data-tel-only> · <a class="tel-link" href="#"></a></span></div></footer>
