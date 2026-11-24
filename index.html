@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wynajem reformerów do pilatesu – Kraków</title>
+<meta name="description" content="Wynajem reformerów do pilatesu w Krakowie i okolicach (do ~20 km). Dostawa i montaż, rezerwacja online, płatność gotówką.">
+<!-- ANALITYKA: wklej tu kod GoatCounter / Google Analytics / Meta Pixel (instrukcja w INSTRUKCJA.md) -->
+<style>
+:root{--bg:#faf7f2;--card:#fff;--ink:#2b2a28;--muted:#6d6862;--accent:#b5838d;--accent-dark:#8f5f69;--soft:#f1e7e4;--line:#e6dfd6}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:var(--accent-dark)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:0;background:rgba(250,247,242,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:10}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--ink)}
+nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a.btn{color:#fff}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600;border:0;cursor:pointer;font-size:1rem}
+.btn:hover{background:var(--accent-dark)}
+.hero{padding:64px 0 48px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2rem,4.5vw,3rem);line-height:1.15;margin:0 0 16px}
+.hero p{font-size:1.15rem;color:var(--muted);margin:0 0 24px}
+.hero img,.ph{width:100%;aspect-ratio:4/3;border-radius:20px;object-fit:cover;background:var(--soft)}
+.ph{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;text-align:center;padding:20px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.badge{background:var(--soft);padding:6px 14px;border-radius:999px;font-size:.9rem}
+section{padding:56px 0}
+h2{font-size:1.9rem;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 32px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.card h3{margin:0 0 8px}
+.price{font-size:2rem;font-weight:700;color:var(--accent-dark)}
+.price small{font-size:1rem;color:var(--muted);font-weight:400}
+.card.best{border:2px solid var(--accent)}
+.card ul{padding-left:18px;margin:12px 0 0}
+.cash{background:var(--ink);color:#fff;border-radius:18px;padding:22px 26px;display:flex;gap:16px;align-items:center;margin-top:28px}
+.cash strong{font-size:1.1rem}
+.steps{counter-reset:s}
+.steps .card{position:relative;padding-top:56px}
+.steps .card::before{counter-increment:s;content:counter(s);position:absolute;top:18px;left:24px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+form{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-size:.9rem;font-weight:600;margin-bottom:6px}
+input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+textarea{min-height:90px}
+.full{grid-column:1/-1}
+.hp{display:none}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem}
+.check input{width:auto;margin-top:5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:12px}
+summary{font-weight:600;cursor:pointer}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){
+ nav a:not(.btn){display:none}
+ .hero{grid-template-columns:1fr;padding-top:32px}
+ .grid3{grid-template-columns:1fr}
+ form{grid-template-columns:1fr;padding:20px}
+ .cash{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap">
+  <a class="logo" href="#">Pilates w Domu Kraków</a>
+  <nav>
+   <a href="#oferta">Oferta</a>
+   <a href="#jak">Jak to działa</a>
+   <a href="#faq">FAQ</a>
+   <a class="btn" href="#rezerwacja" data-track="nav-rezerwuj">Zarezerwuj</a>
+  </nav>
+ </div>
+</header>
+
+<main>
+<div class="wrap hero">
+ <div>
+  <h1>Reformer do pilatesu u Ciebie w domu. Wynajem w Krakowie.</h1>
+  <p>Ćwicz pilates na profesjonalnym reformerze bez kupowania sprzętu za kilkanaście tysięcy złotych. Przywozimy, montujemy i pokazujemy, jak zacząć.</p>
+  <a class="btn" href="#rezerwacja" data-track="hero-rezerwuj">Sprawdź termin i zarezerwuj</a>
+  <div class="badges">
+   <span class="badge">🚚 Dostawa i montaż</span>
+   <span class="badge">📍 Kraków + ok. 20 km</span>
+   <span class="badge">💵 Płatność gotówką</span>
+  </div>
+ </div>
+ <!-- Podmień na swoje zdjęcie: <img src="reformer.jpg" alt="Reformer do pilatesu"> -->
+ <div class="ph">[Tu zdjęcie reformera – najlepiej w ładnym, jasnym wnętrzu]</div>
+</div>
+
+<section id="oferta">
+ <div class="wrap">
+  <h2>Cennik wynajmu</h2>
+  <p class="lead">Ceny przykładowe – do uzupełnienia. Im dłużej, tym taniej.</p>
+  <div class="grid3">
+   <div class="card">
+    <h3>Na próbę</h3>
+    <div class="price">[XXX] zł <small>/ 2 tygodnie</small></div>
+    <ul><li>Idealne, żeby sprawdzić, czy reformer jest dla Ciebie</li><li>Dostawa i odbiór</li><li>Instruktaż na start</li></ul>
+   </div>
+   <div class="card best">
+    <h3>Miesiąc ⭐</h3>
+    <div class="price">[XXX] zł <small>/ miesiąc</small></div>
+    <ul><li>Najczęściej wybierany</li><li>Dostawa, montaż i odbiór</li><li>Zestaw ćwiczeń dla początkujących</li></ul>
+   </div>
+   <div class="card">
+    <h3>3 miesiące+</h3>
+    <div class="price">[XXX] zł <small>/ miesiąc</small></div>
+    <ul><li>Najniższa cena miesięczna</li><li>Możliwość przedłużenia</li><li>Dla studiów i trenerów – zapytaj o kilka sztuk</li></ul>
+   </div>
+  </div>
+  <div class="cash">
+   <span style="font-size:2rem">💵</span>
+   <div><strong>Płatność tylko gotówką</strong><br>Płacisz przy dostawie. Kaucja zwrotna: [XXX] zł, oddajemy ją w całości przy odbiorze sprzętu.</div>
+  </div>
+ </div>
+</section>
+
+<section id="sprzet" style="background:var(--soft)">
+ <div class="wrap">
+  <h2>Sprzęt</h2>
+  <p class="lead">[Marka / model reformera – uzupełnij]</p>
+  <div class="grid3">
+   <div class="card"><h3>Profesjonalny</h3><p>Ten sam typ sprzętu co w studiach pilatesu. Regulowane sprężyny, płynny wózek.</p></div>
+   <div class="card"><h3>Wymiary</h3><p>Ok. [XXX] × [XX] cm. Zmieści się w salonie lub sypialni. Pomożemy ocenić miejsce.</p></div>
+   <div class="card"><h3>Czysty i sprawdzony</h3><p>Każdy reformer jest czyszczony i serwisowany przed dostawą.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="jak">
+ <div class="wrap">
+  <h2>Jak to działa</h2>
+  <p class="lead">Cztery proste kroki.</p>
+  <div class="grid3 steps" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+   <div class="card"><h3>Rezerwujesz</h3><p>Wypełniasz formularz poniżej. Oddzwaniamy w ciągu 24 h, żeby potwierdzić termin.</p></div>
+   <div class="card"><h3>Przywozimy</h3><p>Dostawa i montaż na terenie Krakowa i okolic do ok. 20 km. Odbiór osobisty też możliwy.</p></div>
+   <div class="card"><h3>Ćwiczysz</h3><p>Pokazujemy podstawy i dajemy zestaw ćwiczeń na start.</p></div>
+   <div class="card"><h3>Odbieramy</h3><p>Na koniec okresu odbieramy sprzęt i zwracamy kaucję. Albo przedłużasz.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="rezerwacja" style="background:var(--soft)">
+ <div class="wrap">
+  <h2>Rezerwacja</h2>
+  <p class="lead">Zostaw dane, a potwierdzimy dostępność i termin telefonicznie. Rezerwacja nic nie kosztuje.</p>
+  <!-- Formularz wysyła rezerwację na e-mail przez Web3Forms (klucz publiczny, można go pokazywać). -->
+  <form name="rezerwacja" method="POST" action="https://api.web3forms.com/submit">
+   <input type="hidden" name="access_key" value="9cc5b506-1f28-4783-a472-7d3cbb677843">
+   <input type="hidden" name="subject" value="Nowa rezerwacja reformera – pilateswdomukrk.pl">
+   <input type="hidden" name="from_name" value="Pilates w Domu Kraków">
+   <input type="hidden" name="redirect" value="https://pilateswdomukrk.pl/dziekujemy.html">
+   <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+   <div><label for="imie">Imię i nazwisko *</label><input id="imie" name="imie" required autocomplete="name"></div>
+   <div><label for="tel">Telefon *</label><input id="tel" name="telefon" type="tel" required autocomplete="tel" placeholder="np. 600 000 000"></div>
+   <div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email"></div>
+   <div><label for="miejsce">Miejscowość / dzielnica *</label><input id="miejsce" name="miejscowosc" required placeholder="np. Kraków, Podgórze"></div>
+   <div><label for="od">Od kiedy? *</label><input id="od" name="data_od" type="date" required></div>
+   <div><label for="okres">Na jak długo? *</label>
+    <select id="okres" name="okres" required>
+     <option value="">Wybierz…</option>
+     <option>2 tygodnie</option>
+     <option>1 miesiąc</option>
+     <option>2 miesiące</option>
+     <option>3 miesiące lub dłużej</option>
+     <option>Nie wiem jeszcze</option>
+    </select></div>
+   <div><label for="ile">Ile reformerów?</label>
+    <select id="ile" name="ilosc"><option>1</option><option>2</option><option>3+ (studio / trener)</option></select></div>
+   <div><label for="dost">Dostawa</label>
+    <select id="dost" name="dostawa"><option>Dostawa i montaż</option><option>Odbiór osobisty</option></select></div>
+   <div class="full"><label for="uwagi">Uwagi (piętro, winda, pytania)</label><textarea id="uwagi" name="uwagi"></textarea></div>
+   <div class="full"><label class="check"><input type="checkbox" name="zgoda" required> Wyrażam zgodę na kontakt w sprawie rezerwacji. Płatność gotówką przy dostawie. *</label></div>
+   <div class="full"><button class="btn" type="submit" data-track="formularz-wyslij">Wyślij rezerwację</button></div>
+  </form>
+  <p style="margin-top:18px">Wolisz zadzwonić? <a href="tel:+48000000000" data-track="telefon">[TELEFON]</a> · <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+ </div>
+</section>
+
+<section id="faq">
+ <div class="wrap">
+  <h2>Najczęstsze pytania</h2>
+  <details><summary>Czy mogę zapłacić kartą lub przelewem?</summary><p>Nie. Przyjmujemy wyłącznie gotówkę, płatną przy dostawie.</p></details>
+  <details><summary>Jaki obszar obsługujecie?</summary><p>Kraków i miejscowości do ok. 20 km (m.in. Wieliczka, Skawina, Niepołomice, Zielonki, Michałowice, Liszki). Dalej – zapytaj.</p></details>
+  <details><summary>Ile miejsca potrzeba?</summary><p>Ok. [XXX] × [XXX] cm wolnej podłogi. Reformer można też postawić pionowo, gdy nie ćwiczysz (zależnie od modelu).</p></details>
+  <details><summary>Czy to dla początkujących?</summary><p>Tak. Na start pokazujemy podstawy i dajemy zestaw ćwiczeń. Możemy też polecić instruktora online lub w Krakowie.</p></details>
+  <details><summary>Co z kaucją?</summary><p>Kaucja [XXX] zł gotówką przy dostawie, zwracana w całości przy odbiorze nieuszkodzonego sprzętu.</p></details>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">Pilates w Domu Kraków · Wynajem reformerów do pilatesu · Kraków i okolice · <a href="tel:+48000000000">[TELEFON]</a></div>
+</footer>
+
+<script>
+// Zliczanie kliknięć w ważne przyciski (działa z GoatCounter i/lub Meta Pixel, jeśli są wklejone)
+document.querySelectorAll('[data-track]').forEach(function(el){
+ el.addEventListener('click',function(){
+  var n=el.getAttribute('data-track');
+  try{ if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:'klik-'+n,event:true}); }catch(e){}
+  try{ if(window.fbq){ if(n==='formularz-wyslij') fbq('track','Lead'); else if(n==='telefon') fbq('track','Contact'); } }catch(e){}
+ });
+});
+// Nie pozwól wybrać daty z przeszłości
+(function(){var d=document.getElementById('od');if(d)d.min=new Date().toISOString().slice(0,10);})();
+</script>
+</body>
+</html>
