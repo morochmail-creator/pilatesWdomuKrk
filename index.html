@@ -2,271 +2,296 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wynajem reformerów do pilatesu – Kraków</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wynajem reformera do pilatesu – Kraków | Pilates w Domu</title>
+<meta name="description" content="Reformer do pilatesu w Twoim domu od 349 zł/mies. Darmowa dostawa w Krakowie, montaż, płatność gotówką.">
+<meta property="og:title" content="Reformer do pilatesu w domu – od 349 zł/mies.">
+<meta property="og:description" content="Darmowa dostawa w Krakowie. Płatność gotówką przy dostawie.">
 <meta property="og:image" content="https://pilateswdomukrk.pl/slajd-1.jpg">
-<meta name="description" content="Wynajem reformerów do pilatesu w Krakowie i okolicach (do ~20 km). Dostawa i montaż, rezerwacja online, płatność gotówką.">
-<!-- ANALITYKA: wklej tu kod GoatCounter / Google Analytics / Meta Pixel (instrukcja w INSTRUKCJA.md) -->
+<meta name="theme-color" content="#faf7f2">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<!-- ANALITYKA: tu wklej kod GoatCounter / Meta Pixel -->
 <style>
-:root{--bg:#faf7f2;--card:#fff;--ink:#2b2a28;--muted:#6d6862;--accent:#b5838d;--accent-dark:#8f5f69;--soft:#f1e7e4;--line:#e6dfd6}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+:root{--bg:#faf7f2;--card:#fff;--ink:#2a2227;--muted:#75696f;--accent:#9b6672;--accent-dark:#7d4f5a;--soft:#f3ebe7;--line:#ebe3dc;--ok:#2e7d32;--r:18px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;font-size:16px;padding-bottom:84px}
 a{color:var(--accent-dark)}
-section{scroll-margin-top:64px}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em;margin:0}
+h2{font-size:1.6rem;margin-bottom:6px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
-header{position:sticky;top:0;background:rgba(250,247,242,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:10}
-header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
-.logo{font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--ink)}
-nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-size:.95rem}
-nav a.btn{color:#fff}
-.btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600;border:0;cursor:pointer;font-size:1rem}
-.btn:hover{background:var(--accent-dark)}
-.hero{padding:64px 0 48px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.hero h1{font-size:clamp(2rem,4.5vw,3rem);line-height:1.15;margin:0 0 16px}
-.hero p{font-size:1.15rem;color:var(--muted);margin:0 0 24px}
-.ph{width:100%;aspect-ratio:4/3;border-radius:20px;object-fit:cover;background:var(--soft)}
-.ph{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;text-align:center;padding:20px}
-.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.badge{background:var(--soft);padding:6px 14px;border-radius:999px;font-size:.9rem}
-section{padding:56px 0}
-h2{font-size:1.9rem;margin:0 0 8px}
-.lead{color:var(--muted);margin:0 0 32px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
-.card h3{margin:0 0 8px}
-.price{font-size:2rem;font-weight:700;color:var(--accent-dark)}
-.price small{font-size:1rem;color:var(--muted);font-weight:400}
-.card.best{border:2px solid var(--accent)}
-.card ul{padding-left:18px;margin:12px 0 0}
-.cash{background:var(--ink);color:#fff;border-radius:18px;padding:22px 26px;display:flex;gap:16px;align-items:center;margin-top:28px}
-.cash strong{font-size:1.1rem}
-.steps{counter-reset:s}
-.steps .card{position:relative;padding-top:56px}
-.steps .card::before{counter-increment:s;content:counter(s);position:absolute;top:18px;left:24px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
-form{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-label{display:block;font-size:.9rem;font-weight:600;margin-bottom:6px}
-input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
-textarea{min-height:90px}
-.full{grid-column:1/-1}
-.hp{display:none}
-.check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem}
-.check input{width:auto;margin-top:5px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:12px}
-summary{font-weight:600;cursor:pointer}
-footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.9rem}
-@media (max-width:760px){
- nav a:not(.btn){display:none}
- .hero{grid-template-columns:1fr;padding-top:32px}
- .grid3{grid-template-columns:1fr}
- form{grid-template-columns:1fr;padding:20px}
- .cash{flex-direction:column;align-items:flex-start}
-}
-.car{position:relative;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+section{padding:44px 0;scroll-margin-top:60px}
+.lead{color:var(--muted);margin:0 0 22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;padding:15px 24px;border-radius:999px;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-size:1rem;font-family:inherit;min-height:52px}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(250,247,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+.logo{font-weight:800;text-decoration:none;color:var(--ink);font-size:1.05rem}
+.logo span{color:var(--accent)}
+header .btn{padding:9px 16px;min-height:0;font-size:.9rem}
+/* hero */
+.hero{padding-top:16px;padding-bottom:8px}
+.hero h1{font-size:clamp(1.9rem,7vw,3rem);margin:20px 0 10px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--muted);margin:0 0 18px;font-size:1.05rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:0;list-style:none}
+.chips li{background:#fff;border:1px solid var(--line);padding:7px 12px;border-radius:999px;font-size:.88rem;font-weight:500}
+.hero .btn{width:100%}
+/* carousel */
+.car{position:relative;border-radius:var(--r);overflow:hidden;background:#fff;box-shadow:0 12px 30px rgba(60,30,40,.10)}
 .car-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
 .car-track::-webkit-scrollbar{display:none}
-.car-track img{flex:0 0 100%;width:100%;aspect-ratio:16/9;object-fit:cover;scroll-snap-align:start;display:block}
+.car{min-width:0}.hero>*{min-width:0}
+.car-track img{flex:0 0 100%;width:100%;height:auto;min-width:0;aspect-ratio:16/9;object-fit:cover;scroll-snap-align:start;display:block}
 .car-track img.fit{object-fit:contain;padding:12px;background:#fff}
-.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.85);font-size:1.3rem;cursor:pointer;color:var(--ink)}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:1.3rem;cursor:pointer;color:var(--ink);display:none}
 .car-prev{left:10px}.car-next{right:10px}
 .car-dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:8px}
-.car-dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(0,0,0,.2);cursor:pointer}
-.car-dots button.on{background:var(--accent)}
-.kal{max-width:520px}
-.kal-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-weight:700}
-.kal-head button{border:1px solid var(--line);background:#fff;border-radius:8px;width:36px;height:36px;cursor:pointer;font-size:1.1rem}
-.kal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:0 12px 12px}
-.kal-grid .dn{font-size:.75rem;color:var(--muted);text-align:center;padding:4px 0}
-.kal-grid .d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:.95rem;background:#eef7ee;color:#1b5e20;border:0;cursor:pointer;font:inherit}
-.kal-grid .d.free:hover{background:#c8e6c9}
-.kal-grid .d.we{background:#fdecea;color:#c62828;text-decoration:line-through;cursor:not-allowed}
+.car-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.75);box-shadow:0 0 0 1px rgba(0,0,0,.15);cursor:pointer}
+.car-dots button.on{background:var(--accent);width:22px;border-radius:4px}
+/* pricing */
+.prices{display:grid;gap:14px}
+.price-card{position:relative}
+.price-card h3{font-size:1.05rem}
+.price{font-size:2.3rem;font-weight:800;margin:6px 0 2px;letter-spacing:-.03em}
+.price small{font-size:.95rem;color:var(--muted);font-weight:500}
+.price-card ul{margin:10px 0 0;padding:0;list-style:none}
+.price-card li{padding:4px 0 4px 26px;position:relative}
+.price-card li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+.best{border:2px solid var(--accent);box-shadow:0 10px 28px rgba(155,102,114,.15)}
+.tag{position:absolute;top:-12px;right:16px;background:var(--accent);color:#fff;font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:999px}
+.note{font-size:.92rem;color:var(--muted);margin-top:14px}
+/* steps */
+.steps{display:grid;gap:10px;counter-reset:s;margin:0;padding:0;list-style:none}
+.steps li{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.steps li::before{counter-increment:s;content:counter(s);flex:0 0 30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+.steps b{display:block}
+.steps span{color:var(--muted);font-size:.93rem}
+/* rules */
+.rules{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.rules li{display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.rules .ic{font-size:1.4rem;line-height:1.2}
+.rules b{display:block}
+.rules span{color:var(--muted);font-size:.93rem}
+details.map{margin-top:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+details summary{cursor:pointer;font-weight:700;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"＋";float:right;color:var(--accent)}
+details[open] summary::after{content:"－"}
+#mapa{height:360px;border-radius:12px;margin-top:12px;background:var(--soft)}
+/* calendar */
+.kal{padding:0;max-width:520px}
+.kal-head{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;font-weight:800}
+.kal-head button{border:1px solid var(--line);background:#fff;border-radius:10px;width:40px;height:40px;cursor:pointer;font-size:1.2rem;color:var(--ink)}
+.kal-head button:disabled{opacity:.35}
+.kal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:0 10px 10px}
+.kal-grid .dn{font-size:.72rem;color:var(--muted);text-align:center;padding:4px 0;font-weight:700}
+.kal-grid .d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:10px;background:#edf7ee;color:#1b5e20;border:0;cursor:pointer;font:inherit;font-weight:600;font-size:.92rem}
+.kal-grid .d.we{background:#fdecea;color:#d32f2f;text-decoration:line-through;cursor:not-allowed;font-weight:500}
 .kal-grid .d.busy{background:#e53935;color:#fff;cursor:not-allowed}
-.kal-grid .d.past{background:transparent;color:#bbb;cursor:default}
-.kal-grid .d.sel{outline:2px solid var(--accent-dark)}
-.kal-leg{display:flex;flex-wrap:wrap;gap:14px;padding:0 16px 16px;font-size:.85rem;color:var(--muted)}
+.kal-grid .d.past{background:transparent;color:#c7bfc2;cursor:default;font-weight:400}
+.kal-grid .d.sel{background:var(--accent);color:#fff}
+.kal-leg{display:flex;flex-wrap:wrap;gap:12px;padding:4px 14px 14px;font-size:.82rem;color:var(--muted)}
 .kal-leg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+/* form */
+form{display:grid;gap:14px}
+label{display:block;font-size:.88rem;font-weight:700;margin-bottom:6px}
+input,select,textarea{width:100%;padding:14px;border:1.5px solid var(--line);border-radius:12px;font:inherit;font-size:16px;background:#fff;color:var(--ink);appearance:none;-webkit-appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:84px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:.9rem}
+.check input{width:20px;height:20px;flex:0 0 20px;margin-top:2px;appearance:auto;-webkit-appearance:checkbox;padding:0}
+.hp{display:none}
+.err{color:#c62828;font-size:.82rem;display:none;margin-top:4px}
+form .btn{width:100%}
+/* faq */
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.faq p{margin:10px 0 0;color:var(--muted)}
+footer{padding:28px 0;color:var(--muted);font-size:.88rem;text-align:center}
+/* sticky bottom bar (mobile) */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transition:transform .25s}
+.bar .btn{flex:1;min-height:48px;padding:12px}
+.bar .btn.ghost{flex:0 0 auto}
+.bar.hide{transform:translateY(110%)}
+[data-tel-only]{display:none}
+.has-tel [data-tel-only]{display:inline-flex}
+@media (min-width:820px){
+ body{padding-bottom:0;font-size:17px}
+ .bar{display:none}
+ section{padding:64px 0}
+ .hero{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;padding-top:48px;padding-bottom:48px}
+ .hero .txt{order:-1}
+ .hero h1{margin-top:0}
+ .hero .btn{width:auto}
+ .car-btn{display:block}
+ .prices{grid-template-columns:1fr 1fr}
+ .steps,.rules{grid-template-columns:repeat(2,1fr)}
+ .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+ form .btn{width:auto}
+}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
-
-<header>
- <div class="wrap">
-  <a class="logo" href="#">Pilates w Domu Kraków</a>
-  <nav>
-   <a href="#oferta">Oferta</a>
-   <a href="#jak">Jak to działa</a>
-   <a href="#zasady">Zasady</a>
-   <a href="#kalendarz">Terminy</a>
-   <a class="btn" href="#rezerwacja" data-track="nav-rezerwuj">Zarezerwuj</a>
-  </nav>
- </div>
-</header>
+<header><div class="wrap">
+ <a class="logo" href="#">Pilates <span>w Domu</span></a>
+ <a class="btn" href="#rezerwacja" data-track="nav-rezerwuj">Zarezerwuj</a>
+</div></header>
 
 <main>
 <div class="wrap hero">
- <div>
-  <h1>Reformer do pilatesu u Ciebie w domu. Wynajem w Krakowie.</h1>
-  <p>Ćwicz pilates na profesjonalnym reformerze bez kupowania sprzętu za kilkanaście tysięcy złotych. Przywozimy, montujemy i pokazujemy, jak zacząć.</p>
-  <a class="btn" href="#rezerwacja" data-track="hero-rezerwuj">Sprawdź termin i zarezerwuj</a>
-  <div class="badges">
-   <span class="badge">🚚 Darmowa dostawa w Krakowie</span>
-   <span class="badge">📍 Kraków + ok. 20 km</span>
-   <span class="badge">💵 Płatność gotówką</span>
-  </div>
- </div>
- <!-- Karuzela: dodaj kolejne zdjęcia jako <img> w .car-track -->
+ <!-- Karuzela: kolejne zdjęcia dodaj jako <img> w .car-track -->
  <div class="car" id="car">
   <div class="car-track">
-   <img src="slajd-1.jpg" alt="Wynajmij reformer do pilatesu od 349 zł miesięcznie – dostawa w Krakowie" width="1200" height="675">
+   <img src="slajd-1.jpg" alt="Wynajmij reformer do pilatesu od 349 zł miesięcznie" width="1200" height="675" fetchpriority="high">
+   <img src="slajd-2.jpg" alt="Wygoda studia w Twoim salonie – test 2 tygodnie za 199 zł" width="1200" height="675" loading="lazy">
    <img src="reformer.jpg" class="fit" alt="Reformer do pilatesu Extralink Lifestyle PB1001" width="1200" height="613" loading="lazy">
   </div>
   <button class="car-btn car-prev" aria-label="Poprzednie zdjęcie">‹</button>
   <button class="car-btn car-next" aria-label="Następne zdjęcie">›</button>
   <div class="car-dots"></div>
  </div>
+ <div class="txt">
+  <h1>Reformer do pilatesu <em>u Ciebie w domu</em></h1>
+  <p>Nie kupuj sprzętu za kilkanaście tysięcy. Wynajmij, przywieziemy i zmontujemy.</p>
+  <ul class="chips"><li>🚚 Dostawa w Krakowie gratis</li><li>💵 Płatność gotówką</li><li>📅 Od 2 tygodni</li></ul>
+  <a class="btn" href="#kalendarz" data-track="hero-rezerwuj">Sprawdź wolne terminy</a>
+ </div>
 </div>
 
-<section id="oferta">
+<section id="cennik">
  <div class="wrap">
-  <h2>Cennik wynajmu</h2>
-  <p class="lead">Zacznij od testu, a jeśli Ci się spodoba, po prostu przedłuż.</p>
-  <div class="grid3">
-   <div class="card">
-    <h3>🟢 Test 2 tygodnie</h3>
-    <div class="price">199 zł <small>/ 2 tygodnie</small></div>
-    <ul><li>Sprawdź, czy to dla Ciebie</li><li>Przedłużenie do pełnego miesiąca: <strong>+149 zł</strong></li><li>Dostawa i odbiór</li></ul>
+  <h2>Cennik</h2>
+  <p class="lead">Zacznij od testu. Spodoba się? Po prostu przedłuż.</p>
+  <div class="prices">
+   <div class="card price-card">
+    <h3>Test 2 tygodnie</h3>
+    <div class="price">199 zł</div>
+    <ul><li>Sprawdź, czy to dla Ciebie</li><li>Przedłużenie do miesiąca +149 zł</li></ul>
    </div>
-   <div class="card best">
-    <h3>⭐ Miesiąc – najlepszy wybór</h3>
-    <div class="price">349 zł <small>/ miesiąc</small></div>
-    <ul><li>Mniej niż 3 wejścia do studia</li><li>Dostawa, montaż i odbiór</li><li>Zestaw ćwiczeń dla początkujących</li></ul>
-   </div>
-   <div class="card">
-    <h3>Dłużej lub kilka sztuk</h3>
-    <div class="price" style="font-size:1.4rem">Zapytaj o cenę</div>
-    <ul><li>Wynajem na 2–3 miesiące i dłużej</li><li>Dla studiów i trenerów</li><li>Napisz w formularzu lub zadzwoń</li></ul>
+   <div class="card price-card best">
+    <span class="tag">Najlepszy wybór</span>
+    <h3>Miesiąc</h3>
+    <div class="price">349 zł <small>/ mies.</small></div>
+    <ul><li>Mniej niż 3 wejścia do studia</li><li>Ćwiczysz kiedy chcesz</li></ul>
    </div>
   </div>
-  <div class="cash">
-   <span style="font-size:2rem">💵</span>
-   <div><strong>Płatność tylko gotówką</strong><br>Płacisz przy dostawie. Kaucja zwrotna: 350 zł, oddajemy ją w całości przy odbiorze sprzętu.</div>
-  </div>
+  <p class="note">Kaucja zwrotna 350 zł. Dłużej albo kilka sztuk? Napisz w uwagach formularza.</p>
  </div>
 </section>
 
-<section id="sprzet" style="background:var(--soft)">
- <div class="wrap">
-  <h2>Sprzęt</h2>
-  <p class="lead">Model: Extralink Lifestyle PB1001.</p>
-  <div class="grid3">
-   <div class="card"><h3>Profesjonalny</h3><p>Ten sam typ sprzętu co w studiach pilatesu. Regulowane sprężyny, płynny wózek.</p></div>
-   <div class="card"><h3>Wymiary</h3><p>Ok. [XXX] × [XX] cm. Zmieści się w salonie lub sypialni. Pomożemy ocenić miejsce.</p></div>
-   <div class="card"><h3>Czysty i sprawdzony</h3><p>Każdy reformer jest czyszczony i serwisowany przed dostawą.</p></div>
-  </div>
- </div>
-</section>
-
-<section id="jak">
+<section id="jak" style="background:var(--soft)">
  <div class="wrap">
   <h2>Jak to działa</h2>
-  <p class="lead">Cztery proste kroki.</p>
-  <div class="grid3 steps" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
-   <div class="card"><h3>Rezerwujesz</h3><p>Wypełniasz formularz poniżej. Oddzwaniamy w ciągu 24 h, żeby potwierdzić termin.</p></div>
-   <div class="card"><h3>Przywozimy</h3><p>Od poniedziałku do piątku, rano (8–12) lub wieczorem (16–18). Kraków i okolice do ok. 20 km.</p></div>
-   <div class="card"><h3>Ćwiczysz</h3><p>Pokazujemy podstawy i dajemy zestaw ćwiczeń na start.</p></div>
-   <div class="card"><h3>Odbieramy</h3><p>Na koniec okresu odbieramy sprzęt i zwracamy kaucję. Albo przedłużasz.</p></div>
-  </div>
+  <p class="lead">Trzy kroki i ćwiczysz.</p>
+  <ol class="steps">
+   <li><div><b>Wybierasz termin</b><span>W kalendarzu i formularzu poniżej. Oddzwonimy z potwierdzeniem.</span></div></li>
+   <li><div><b>Przywozimy i montujemy</b><span>Pokazujemy podstawy. Płacisz gotówką przy dostawie.</span></div></li>
+   <li><div><b>Odbieramy lub przedłużasz</b><span>Na koniec zabieramy sprzęt i oddajemy kaucję.</span></div></li>
+  </ol>
  </div>
 </section>
 
 <section id="zasady">
  <div class="wrap">
-  <h2>Zasady wynajmu</h2>
-  <p class="lead">Krótko i jasno, żeby nie było niespodzianek.</p>
-  <div class="grid3">
-   <div class="card"><h3>🚚 Dostawa i odbiór</h3><ul><li><strong>W Krakowie: gratis</strong></li><li>Poza Krakowem (do ok. 20 km): +50 zł</li><li>Od poniedziałku do piątku</li><li>Rano: 8:00–12:00</li><li>Wieczorem: 16:00–18:00</li><li>Okno wybierasz w formularzu</li></ul></div>
-   <div class="card"><h3>💵 Płatność</h3><ul><li>Tylko gotówka, przy dostawie</li><li>Kaucja zwrotna: <strong>350 zł</strong></li><li>Kaucję oddajemy przy odbiorze sprzętu</li></ul></div>
-   <div class="card"><h3>📅 Okres wynajmu</h3><ul><li>Test 2 tygodnie: 199 zł</li><li>Przedłużenie do miesiąca: +149 zł</li><li>Miesiąc: 349 zł</li><li>Rezerwację potwierdzamy telefonicznie</li></ul></div>
-  </div>
-  <details id="mapa-box" style="margin-top:20px"><summary>🗺️ Zobacz mapę – gdzie dostawa jest darmowa</summary>
-   <div id="mapa" style="height:420px;border-radius:12px;margin-top:12px;background:var(--soft)"></div>
-   <p style="font-size:.9rem;color:var(--muted);margin:10px 0 0">🟩 Zielony obszar: granice Krakowa, dostawa gratis. Przerywana linia: ok. 20 km, dostawa +50 zł. Dalej zapytaj.</p>
+  <h2>Zasady</h2>
+  <p class="lead">Bez gwiazdek i drobnego druku.</p>
+  <ul class="rules">
+   <li><span class="ic">🚚</span><div><b>Dostawa pn–pt</b><span>Rano 8–12 albo wieczorem 16–18. Godziny wybierasz w formularzu.</span></div></li>
+   <li><span class="ic">📍</span><div><b>W Krakowie gratis</b><span>Poza Krakowem, do ok. 20 km: +50 zł.</span></div></li>
+   <li><span class="ic">💵</span><div><b>Tylko gotówka</b><span>Płatność przy dostawie.</span></div></li>
+   <li><span class="ic">🔒</span><div><b>Kaucja 350 zł</b><span>Zwracana w całości przy odbiorze.</span></div></li>
+  </ul>
+  <details class="map" id="mapa-box"><summary>🗺️ Zobacz mapę darmowej dostawy</summary>
+   <div id="mapa"></div>
+   <p class="note" style="margin:10px 0 0">Zielone: Kraków, dostawa gratis. Linia przerywana: ok. 20 km, +50 zł.</p>
   </details>
  </div>
 </section>
 
 <section id="kalendarz" style="background:var(--soft)">
- <div class="wrap">
-  <h2>Wolne terminy</h2>
-  <p class="lead">Kliknij wolny dzień, a wpiszemy go do formularza rezerwacji. Dostawy tylko od poniedziałku do piątku.</p>
-  <div class="card kal" style="padding:0">
+ <div class="wrap split">
+  <div>
+   <h2>Wolne terminy</h2>
+   <p class="lead">Kliknij zielony dzień, a przeniesiemy go do formularza. Weekendy są przekreślone, bo wtedy nie dowozimy.</p>
+  </div>
+  <div class="card kal">
    <div class="kal-head"><button type="button" id="kal-prev" aria-label="Poprzedni miesiąc">‹</button><span id="kal-title"></span><button type="button" id="kal-next" aria-label="Następny miesiąc">›</button></div>
    <div class="kal-grid" id="kal-grid"></div>
-   <div class="kal-leg"><span><i style="background:#eef7ee;box-shadow:inset 0 0 0 1px #a5d6a7"></i>wolne</span><span><i style="background:#e53935"></i>zajęte</span><span><i style="background:#fdecea"></i><s>weekend</s> – brak dostaw</span></div>
+   <div class="kal-leg"><span><i style="background:#edf7ee;box-shadow:inset 0 0 0 1px #a5d6a7"></i>wolne</span><span><i style="background:#e53935"></i>zajęte</span><span><i style="background:#fdecea"></i><s>weekend</s></span></div>
   </div>
  </div>
 </section>
 
 <section id="rezerwacja">
- <div class="wrap">
-  <h2>Rezerwacja</h2>
-  <p class="lead">Zostaw dane, a potwierdzimy dostępność i termin telefonicznie. Rezerwacja nic nie kosztuje.</p>
-  <!-- Formularz wysyła rezerwację na e-mail przez Web3Forms (klucz publiczny, można go pokazywać). -->
+ <div class="wrap split">
+  <div>
+   <h2>Rezerwacja</h2>
+   <p class="lead">Zajmie minutę. Rezerwacja nic nie kosztuje, oddzwonimy, żeby potwierdzić.</p>
+   <p data-tel-only style="margin:0 0 20px">Wolisz zadzwonić? <a class="tel-link" href="#" data-track="telefon"></a></p>
+  </div>
   <form name="rezerwacja" method="POST" action="https://api.web3forms.com/submit">
    <input type="hidden" name="access_key" value="9cc5b506-1f28-4783-a472-7d3cbb677843">
    <input type="hidden" name="subject" value="Nowa rezerwacja reformera – pilateswdomukrk.pl">
    <input type="hidden" name="from_name" value="Pilates w Domu Kraków">
    <input type="hidden" name="redirect" value="https://pilateswdomukrk.pl/dziekujemy.html">
    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
-   <div><label for="imie">Imię i nazwisko *</label><input id="imie" name="imie" required autocomplete="name"></div>
-   <div><label for="tel">Telefon *</label><input id="tel" name="telefon" type="tel" required autocomplete="tel" placeholder="np. 600 000 000"></div>
-   <div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email"></div>
-   <div><label for="miejsce">Miejscowość / dzielnica *</label><input id="miejsce" name="miejscowosc" required placeholder="np. Kraków, Podgórze"></div>
-   <div><label for="od">Dzień dostawy (pn–pt) *</label><input id="od" name="data_dostawy" type="date" required><small id="od-err" style="color:#b3261e;display:none">Dostawy tylko od poniedziałku do piątku.</small></div>
-   <div><label for="okno">Godziny dostawy *</label>
-    <select id="okno" name="okno_dostawy" required>
-     <option value="">Wybierz…</option>
-     <option>Rano 8:00–12:00</option>
-     <option>Wieczorem 16:00–18:00</option>
+   <div><label for="pakiet">Pakiet</label>
+    <select id="pakiet" name="okres" required>
+     <option>Test 2 tygodnie – 199 zł</option>
+     <option selected>Miesiąc – 349 zł</option>
+     <option>Dłużej / kilka sztuk – zapytam</option>
     </select></div>
-   <div><label for="okres">Na jak długo? *</label>
-    <select id="okres" name="okres" required>
-     <option value="">Wybierz…</option>
-     <option>Test 2 tygodnie (199 zł)</option>
-     <option>1 miesiąc (349 zł)</option>
-     <option>2 miesiące</option>
-     <option>3 miesiące lub dłużej</option>
-     <option>Nie wiem jeszcze</option>
-    </select></div>
-   <div><label for="ile">Ile reformerów?</label>
-    <select id="ile" name="ilosc"><option>1</option><option>2</option><option>3+ (studio / trener)</option></select></div>
+   <div class="row2">
+    <div><label for="od">Dzień dostawy</label><input id="od" name="data_dostawy" type="date" required></div>
+    <div><label for="okno">Godziny</label>
+     <select id="okno" name="okno_dostawy" required><option value="">Wybierz</option><option>8–12</option><option>16–18</option></select></div>
+   </div>
+   <div class="err" id="od-err">Dostawy tylko od poniedziałku do piątku.</div>
    <div><label for="dost">Dostawa</label>
-    <select id="dost" name="dostawa"><option>Dostawa w Krakowie (gratis)</option><option>Dostawa poza Krakowem, do ok. 20 km (+50 zł)</option><option>Odbiór osobisty</option></select></div>
-   <div class="full"><label for="uwagi">Uwagi (piętro, winda, pytania)</label><textarea id="uwagi" name="uwagi"></textarea></div>
-   <div class="full"><label class="check"><input type="checkbox" name="zgoda" required> Akceptuję <a href="#zasady">zasady wynajmu</a>: płatność gotówką przy dostawie i kaucja zwrotna 350 zł. *</label></div>
-   <div class="full"><button class="btn" type="submit" data-track="formularz-wyslij">Wyślij rezerwację</button></div>
+    <select id="dost" name="dostawa"><option>Kraków – gratis</option><option>Poza Krakowem do ~20 km – +50 zł</option><option>Odbiorę sam(a)</option></select></div>
+   <div><label for="adres">Adres lub dzielnica</label><input id="adres" name="adres" required autocomplete="street-address" placeholder="np. Podgórze, ul. …"></div>
+   <div><label for="imie">Imię</label><input id="imie" name="imie" required autocomplete="given-name"></div>
+   <div><label for="tel">Telefon</label><input id="tel" name="telefon" type="tel" inputmode="tel" required autocomplete="tel" placeholder="600 000 000"></div>
+   <div><label for="email">E-mail <span style="font-weight:400;color:var(--muted)">(opcjonalnie)</span></label><input id="email" name="email" type="email" autocomplete="email"></div>
+   <div><label for="uwagi">Uwagi <span style="font-weight:400;color:var(--muted)">(piętro, winda)</span></label><textarea id="uwagi" name="uwagi"></textarea></div>
+   <label class="check"><input type="checkbox" name="zgoda" required> Akceptuję zasady: płatność gotówką i kaucja 350 zł.</label>
+   <button class="btn" type="submit" data-track="formularz-wyslij">Wyślij rezerwację</button>
   </form>
-  <p style="margin-top:18px">Wolisz zadzwonić? <a href="tel:+48000000000" data-track="telefon">[TELEFON]</a> · <a href="mailto:[EMAIL]">[EMAIL]</a></p>
  </div>
 </section>
 
-<section id="faq">
- <div class="wrap">
-  <h2>Najczęstsze pytania</h2>
-  <details><summary>Czy mogę zapłacić kartą lub przelewem?</summary><p>Nie. Przyjmujemy wyłącznie gotówkę, płatną przy dostawie.</p></details>
-  <details><summary>Jaki obszar obsługujecie?</summary><p>W granicach Krakowa dostawa jest darmowa. Miejscowości do ok. 20 km (+50 zł) (m.in. Wieliczka, Skawina, Niepołomice, Zielonki, Michałowice, Liszki). Dalej – zapytaj.</p></details>
-  <details><summary>Ile miejsca potrzeba?</summary><p>Ok. [XXX] × [XXX] cm wolnej podłogi. Reformer można też postawić pionowo, gdy nie ćwiczysz (zależnie od modelu).</p></details>
-  <details><summary>Czy to dla początkujących?</summary><p>Tak. Na start pokazujemy podstawy i dajemy zestaw ćwiczeń. Możemy też polecić instruktora online lub w Krakowie.</p></details>
-  <details><summary>Co z kaucją?</summary><p>Kaucja 350 zł gotówką przy dostawie, zwracana w całości przy odbiorze nieuszkodzonego sprzętu.</p></details>
+<section id="faq" style="background:var(--soft)">
+ <div class="wrap faq">
+  <h2 style="margin-bottom:18px">Pytania</h2>
+  <details><summary>Czy to dla początkujących?</summary><p>Tak. Przy dostawie pokazujemy podstawy i dajemy zestaw ćwiczeń na start.</p></details>
+  <details><summary>Ile miejsca potrzeba?</summary><p>Wystarczy kawałek wolnej podłogi w salonie lub sypialni. Dokładne wymiary podamy przy potwierdzaniu rezerwacji.</p></details>
+  <details><summary>Mogę zapłacić kartą?</summary><p>Nie, przyjmujemy tylko gotówkę przy dostawie.</p></details>
  </div>
 </section>
 </main>
 
-<footer>
- <div class="wrap">Pilates w Domu Kraków · Wynajem reformerów do pilatesu · Kraków i okolice · <a href="tel:+48000000000">[TELEFON]</a></div>
-</footer>
+<footer><div class="wrap">Pilates w Domu · Wynajem reformerów · Kraków i okolice<span data-tel-only> · <a class="tel-link" href="#"></a></span></div></footer>
 
+<div class="bar" id="bar">
+ <a class="btn ghost" data-tel-only href="#" id="bar-tel" aria-label="Zadzwoń">📞</a>
+ <a class="btn" href="#rezerwacja" data-track="bar-rezerwuj">Zarezerwuj termin</a>
+</div>
 <script>
+// TELEFON: wpisz numer, np. '600123456'. Puste = przyciski telefonu ukryte.
+var TEL='';
+if(TEL){document.documentElement.classList.add('has-tel');var nice=TEL.replace(/(\d{3})(?=\d)/g,'$1 ').trim();
+ document.querySelectorAll('.tel-link').forEach(function(a){a.href='tel:+48'+TEL;a.textContent=nice;});
+ var bt=document.getElementById('bar-tel');if(bt)bt.href='tel:+48'+TEL;}
+// Dolny pasek chowa się, gdy formularz jest na ekranie
+(function(){var bar=document.getElementById('bar'),f=document.getElementById('rezerwacja');if(!bar||!f||!('IntersectionObserver' in window))return;
+ new IntersectionObserver(function(e){bar.classList.toggle('hide',e[0].isIntersecting);},{threshold:.15}).observe(f);})();
 // Zliczanie kliknięć w ważne przyciski (działa z GoatCounter i/lub Meta Pixel, jeśli są wklejone)
 document.querySelectorAll('[data-track]').forEach(function(el){
  el.addEventListener('click',function(){
