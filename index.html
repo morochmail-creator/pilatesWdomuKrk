@@ -69,6 +69,21 @@ header .btn{padding:10px 18px;min-height:0;font-size:.9rem;box-shadow:none}
 .bgfx path+path{stroke:var(--sage);opacity:.18;stroke-dashoffset:calc(3000 - var(--p)*2600)}
 @media (prefers-reduced-motion:reduce){.bgfx i,.bgfx path{transform:none!important;stroke-dashoffset:0!important}}
 /* hero */
+.hero2{position:relative;min-height:min(640px,calc(100svh - 64px));display:flex;align-items:flex-end;overflow:hidden;color:#fff;background:#3b2a24}
+.hero-slides,.hero-ov{position:absolute;inset:0}
+.hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease,transform 7s ease;transform:scale(1.06)}
+.hero-slides img.on{opacity:1;transform:scale(1)}
+.hero-ov{background:linear-gradient(180deg,rgba(40,25,20,.05) 0%,rgba(40,25,20,.25) 40%,rgba(40,25,20,.78) 100%)}
+.hero-txt{position:relative;padding-top:40px;padding-bottom:34px;width:100%}
+.hero-txt .eyebrow{color:#ffd9c4}
+.hero-txt h1{font-size:clamp(2.3rem,10vw,4.2rem);color:#fff;margin:0;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero-txt h1 em{font-style:italic;color:#ffc9ad}
+.hero-txt .sub{color:rgba(255,255,255,.9);font-size:1.1rem;margin:12px 0 18px;max-width:34ch}
+.hero-txt .price-pill{background:rgba(255,255,255,.92)}
+.hero-txt .btn.ghost{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7)}
+.hero-ticks{margin:18px 0 0;grid-template-columns:1fr;font-size:.92rem}
+@media (min-width:860px){.hero2{min-height:82vh;align-items:center}.hero-slides img{object-position:65% center}.hero-ov{background:linear-gradient(90deg,rgba(40,25,20,.78) 0%,rgba(40,25,20,.45) 45%,rgba(40,25,20,0) 75%)}.hero-txt{padding-top:80px;padding-bottom:80px}.hero-txt .cta-row{display:flex;gap:12px}.hero-ticks{grid-template-columns:repeat(3,auto);justify-content:center;gap:28px;margin-top:22px}}
+
 .hero{padding-top:18px;padding-bottom:40px;display:grid;gap:26px}
 .hero .photo{aspect-ratio:16/9}
 .hero h1{font-size:clamp(2.2rem,9vw,3.6rem)}
@@ -233,25 +248,31 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 </div></header>
 
 <main>
-<!-- 1. HERO -->
-<div class="wrap hero">
- <div class="photo"><img src="classic-4.jpg" alt="Biały reformer do pilatesu w jasnym salonie" width="1000" height="566" fetchpriority="high"></div>
- <div class="txt">
+<!-- 1. HERO: zdjęcia z napisem -->
+<div class="hero2">
+ <div class="hero-slides" id="hero-slides">
+  <img class="on" src="classic-4.jpg" alt="Biały reformer do pilatesu w jasnym salonie" width="1000" height="566" fetchpriority="high">
+  <img src="classic-2.jpg" alt="Ćwiczenie podporu na reformerze" width="1000" height="634" loading="lazy">
+  <img src="classic-3.jpg" alt="Ćwiczenie z linkami na reformerze" width="933" height="700" loading="lazy">
+  <img src="foto-wygoda.jpg" alt="Różne ćwiczenia na reformerze w domu" width="1000" height="717" loading="lazy">
+ </div>
+ <div class="hero-ov"></div>
+ <div class="wrap hero-txt">
   <span class="eyebrow">Wynajem reformerów · Kraków</span>
   <h1>Pilates na reformerze, <em>w Twoim salonie</em></h1>
-  <p class="sub">Profesjonalny reformer przywieziemy pod drzwi. Ćwiczysz kiedy chcesz, bez dojazdów i bez kupowania drogiego sprzętu.</p>
+  <p class="sub">Przywieziemy reformer pod drzwi. Ćwiczysz kiedy chcesz, bez dojazdów.</p>
   <div class="price-pill">od <b>200 zł</b> za 2 tygodnie</div>
   <div class="cta-row">
    <a class="btn" href="#rezerwacja" data-track="hero-rezerwuj">Sprawdź wolny termin</a>
    <a class="btn ghost" href="#cennik">Zobacz cennik</a>
   </div>
-  <ul class="ticks">
-   <li>Płacisz dopiero przy dostawie, gotówką</li>
-   <li>Darmowa dostawa w Krakowie</li>
-   <li>Bez kaucji, rezerwacja bez zobowiązań</li>
-  </ul>
  </div>
 </div>
+<div class="wrap"><ul class="ticks hero-ticks">
+ <li>Płacisz przy dostawie, gotówką</li>
+ <li>Darmowa dostawa w Krakowie</li>
+ <li>Bez kaucji</li>
+</ul></div>
 
 <!-- SPRZĘT -->
 <section id="sprzet" class="soft">
@@ -484,6 +505,9 @@ document.querySelectorAll('[data-track]').forEach(function(el){
   document.body.appendChild(sc);
  });
 })();
+// Zmieniające się zdjęcia na górze
+(function(){var b=document.getElementById('hero-slides');if(!b)return;var im=b.querySelectorAll('img'),i=0;if(im.length<2)return;
+ setInterval(function(){if(document.hidden)return;im[i].classList.remove('on');i=(i+1)%im.length;im[i].classList.add('on');},4000);})();
 // Tło reaguje na przewijanie
 (function(){var el=document.getElementById('bgfx');if(!el||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var t=0;
  function f(){t=0;var h=document.documentElement.scrollHeight-innerHeight;el.style.setProperty('--p',h>0?Math.min(1,scrollY/h).toFixed(4):0);}
