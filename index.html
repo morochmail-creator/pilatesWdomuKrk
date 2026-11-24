@@ -371,13 +371,13 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
   </ol>
   <ul class="rules">
    <li><span class="ic">🕗</span><div><b>Dostawa pn–pt</b><span>Rano 8–12 albo wieczorem 16–18. Wybierasz w formularzu.</span></div></li>
-   <li><span class="ic">📍</span><div><b>W Krakowie gratis</b><span>Poza Krakowem, do ok. 20 km: +50 zł.</span></div></li>
+   <li><span class="ic">📍</span><div><b>W Krakowie gratis</b><span>Poza obszarem: +50 zł za dostawę i odbiór łącznie.</span></div></li>
    <li><span class="ic">💵</span><div><b>Tylko gotówka</b><span>Płacisz przy dostawie, nie wcześniej.</span></div></li>
    <li><span class="ic">📝</span><div><b>Bez kaucji</b><span>Przy dostawie krótka umowa, przygotuj dowód osobisty.</span></div></li>
   </ul>
   <details class="map" id="mapa-box"><summary>🗺️ Zobacz mapę darmowej dostawy</summary>
    <div id="mapa"></div>
-   <p class="note" style="margin:10px 0 0">Zielone: Kraków, dostawa gratis. Linia przerywana: ok. 20 km, +50 zł.</p>
+   <p class="note" style="margin:10px 0 0">Zielone: Kraków, dostawa gratis. Linia przerywana: ok. 20 km, +50 zł za dostawę i odbiór łącznie.</p>
   </details>
  </div>
 </section>
@@ -420,8 +420,8 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
     </div>
     <div class="err" id="od-err">Dostawy od 7 grudnia 2026, od poniedziałku do piątku.</div>
     <div><label for="dost">Dostawa</label>
-     <select id="dost" name="dostawa"><option>W żółtym obszarze – gratis</option><option>Poza żółtym obszarem – +50 zł</option><option>Odbiorę sam(a)</option></select></div>
-    <details class="dmapa"><summary>🗺️ Pokaż mapkę dostaw</summary><div class="dm-wrap"><img src="mapa-dostawy.jpg" alt="Mapa dostawy: w żółtym obszarze Krakowa dostawa gratis" width="1400" height="743" loading="lazy"><div class="dm-leg"><span><i style="background:#f5b800"></i>Żółty obszar: dostawa gratis</span><span><i style="background:#fff;border:1px solid #888"></i>Poza żółtym: +50 zł</span></div></div></details>
+     <select id="dost" name="dostawa"><option>W żółtym obszarze – gratis</option><option>Poza żółtym obszarem – +50 zł (dostawa i odbiór)</option><option>Odbiorę sam(a)</option></select></div>
+    <details class="dmapa"><summary>🗺️ Pokaż mapkę dostaw</summary><div class="dm-wrap"><img src="mapa-dostawy.jpg" alt="Mapa dostawy: w żółtym obszarze Krakowa dostawa gratis" width="1400" height="743" loading="lazy"><div class="dm-leg"><span><i style="background:#f5b800"></i>Żółty obszar: dostawa i odbiór gratis</span><span><i style="background:#fff;border:1px solid #888"></i>Poza żółtym: +50 zł za dostawę i odbiór łącznie</span></div></div></details>
     <div><label for="adres">Adres lub dzielnica</label><input id="adres" name="adres" required autocomplete="street-address" placeholder="np. Podgórze, ul. …"></div>
     <div class="row2">
      <div><label for="imie">Imię</label><input id="imie" name="imie" required autocomplete="given-name"></div>
@@ -507,7 +507,7 @@ document.querySelectorAll('[data-track]').forEach(function(el){
    var c=[50.0614,19.9366];
    var m=L.map('mapa',{scrollWheelZoom:false}).setView(c,10);
    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(m);
-   L.circle(c,{radius:20000,color:'#c0714f',weight:2,dashArray:'6 6',fill:false}).addTo(m).bindTooltip('Do ok. 20 km: +50 zł');
+   L.circle(c,{radius:20000,color:'#c0714f',weight:2,dashArray:'6 6',fill:false}).addTo(m).bindTooltip('Do ok. 20 km: +50 zł (dostawa i odbiór)');
    function draw(g){var l=L.geoJSON(g,{style:{color:'#5b8a5a',weight:2,fillColor:'#7fb07e',fillOpacity:.25}}).addTo(m).bindTooltip('Kraków: dostawa gratis');m.fitBounds(L.circle(c,{radius:20000}).addTo(m).getBounds());}
    var key='krk-granice-v1',g=null;try{g=JSON.parse(localStorage.getItem(key));}catch(e){}
    if(g){draw(g);return;}
@@ -579,5 +579,6 @@ var ZAJETE=[];
  draw();
 })();
 </script>
+<script src="/lightbox.js" defer></script>
 </body>
 </html>
