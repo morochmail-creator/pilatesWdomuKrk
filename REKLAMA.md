@@ -15,7 +15,7 @@ Uzupełnij [NAZWA], [CENA], [LINK]. Link to adres strony po publikacji.
 ## Teksty reklam (3 warianty do testu A/B)
 
 **Wariant A – oszczędność**
-> Reformer do pilatesu kosztuje kilkanaście tysięcy. Wynajmij go od [CENA] zł/mies. 🏡
+> Nie kupuj, wypróbuj. Wynajmij reformer od [CENA] zł/mies. 🏡
 > Przywozimy i montujemy w Krakowie i okolicach. Ćwicz w domu, kiedy chcesz.
 > 💵 Płatność gotówką przy dostawie.
 > 👉 Sprawdź termin: [LINK]

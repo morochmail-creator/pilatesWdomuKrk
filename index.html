@@ -55,11 +55,6 @@ header nav{display:flex;align-items:center;gap:14px}
 .navlink{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
 .navlink:hover{color:var(--accent)}
 .navlink.desk{display:none}@media(min-width:620px){.navlink.desk{display:inline}}
-.pcards{display:grid;gap:14px;margin-top:22px}
-@media(min-width:860px){.pcards{grid-template-columns:repeat(3,1fr)}}
-.pcard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:var(--shadow)}
-.pcard img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--soft)}
-.pcard div{padding:16px 18px}.pcard b{font-family:Fraunces,serif;font-size:1.12rem;display:block;margin-bottom:6px;font-weight:600}.pcard span{color:var(--muted);font-size:.93rem}
 header .btn{padding:10px 18px;min-height:0;font-size:.9rem;box-shadow:none}
 /* hero */
 .hero{padding-top:18px;padding-bottom:40px;display:grid;gap:26px}
@@ -88,7 +83,7 @@ header .btn{padding:10px 18px;min-height:0;font-size:.9rem;box-shadow:none}
 .cmp.win ul{color:var(--ink)}
 /* benefits */
 .benefits{display:grid;gap:26px;align-items:center}
-.benefits .photo{aspect-ratio:16/9}
+.benefits .photo{aspect-ratio:1000/717}
 .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .b{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
 .b .i{font-size:1.5rem}
@@ -174,6 +169,27 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 .bar.hide{transform:translateY(110%)}
 [data-tel-only]{display:none}
 .has-tel [data-tel-only]{display:inline-flex}
+/* modele */
+.models{display:grid;gap:20px;max-width:980px;margin:0 auto}
+.model{padding:0;overflow:hidden;display:grid}
+.gal{position:relative;background:#fff}
+.gal-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;aspect-ratio:4/3}
+.gal-track::-webkit-scrollbar{display:none}
+.gal-track img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;scroll-snap-align:center;background:#fff}
+.gal-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,253,249,.92);color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.gal-btn.prev{left:10px}.gal-btn.next{right:10px}
+.gal-dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
+.gal-dots i{width:8px;height:8px;border-radius:50%;background:rgba(59,42,36,.25)}
+.gal-dots i.on{background:var(--accent)}
+.model-body{padding:22px}
+.model-body h3{font-family:Fraunces,serif;font-size:1.7rem;margin:8px 0 4px;font-weight:600}
+.model-price{margin:0 0 16px;color:var(--muted)}.model-price b{color:var(--accent-dark);font-size:1.15rem}
+.specs{list-style:none;padding:0;margin:0 0 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.specs li{background:var(--soft);border-radius:14px;padding:10px 12px;line-height:1.3}
+.specs b{display:block;font-size:.98rem}.specs span{color:var(--muted);font-size:.82rem}
+.model .btn{width:100%}
+.model .tag{position:static;display:inline-block;transform:none}
+@media (min-width:860px){.model{grid-template-columns:1.1fr 1fr}.gal-track{height:100%;aspect-ratio:auto;min-height:460px}.model-body{padding:30px}}
 @media (min-width:860px){
  body{padding-bottom:0;font-size:17px}
  .bar{display:none}
@@ -197,18 +213,18 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 <body>
 <header><div class="wrap">
  <a class="logo" href="#"><img src="logo-znak.png" alt="" width="40" height="30"><b>Pilates <span>w Domu</span></b></a>
- <nav><a class="navlink desk" href="/poradnik/">Poradnik</a><a class="navlink" href="#cennik" data-track="nav-cennik">Cennik</a>
+ <nav><a class="navlink desk" href="/poradnik/">Poradnik</a><a class="navlink desk" href="#sprzet" data-track="nav-sprzet">Sprzęt</a><a class="navlink" href="#cennik" data-track="nav-cennik">Cennik</a>
  <a class="btn" href="#rezerwacja" data-track="nav-rezerwuj">Zarezerwuj</a></nav>
 </div></header>
 
 <main>
 <!-- 1. HERO -->
 <div class="wrap hero">
- <div class="photo"><img src="foto-hero.jpg" alt="Kobieta ćwiczy pilates na reformerze w jasnym salonie" width="1200" height="675" fetchpriority="high"></div>
+ <div class="photo"><img src="foto-hero.jpg" alt="Kobieta ćwiczy pilates na reformerze Classic" width="1000" height="562" fetchpriority="high"></div>
  <div class="txt">
   <span class="eyebrow">Wynajem reformerów · Kraków</span>
   <h1>Pilates na reformerze, <em>w Twoim salonie</em></h1>
-  <p class="sub">Profesjonalny reformer przywieziemy pod drzwi. Ćwiczysz kiedy chcesz, bez dojazdów i bez wydawania kilkunastu tysięcy na sprzęt.</p>
+  <p class="sub">Profesjonalny reformer przywieziemy pod drzwi. Ćwiczysz kiedy chcesz, bez dojazdów i bez kupowania drogiego sprzętu.</p>
   <div class="price-pill">od <b>200 zł</b> za 2 tygodnie</div>
   <div class="cta-row">
    <a class="btn" href="#rezerwacja" data-track="hero-rezerwuj">Sprawdź wolny termin</a>
@@ -239,7 +255,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
    <p class="lead">Porównaj. Wynajem łączy wygodę własnego sprzętu z ceną, która nie boli.</p>
   </div>
   <div class="compare">
-   <div class="cmp"><h3>Zakup reformera</h3><div class="big">kilkanaście tys. zł</div><ul><li>Duży wydatek na start</li><li>Nie wiesz, czy Ci się spodoba</li></ul></div>
+   <div class="cmp"><h3>Zakup reformera</h3><div class="big">duży wydatek</div><ul><li>Sporo pieniędzy na start</li><li>Nie wiesz, czy Ci się spodoba</li></ul></div>
    <div class="cmp"><h3>Zajęcia w studio</h3><div class="big">dojazdy i grafik</div><ul><li>Ćwiczysz tylko w godzinach zajęć</li><li>Miesiąc wynajmu to mniej niż 3 wejścia</li></ul></div>
    <div class="cmp win"><h3>Wynajem u nas</h3><div class="big">od 200 zł</div><ul><li>Reformer w domu, kiedy chcesz</li><li>Wypróbuj przez 2 tygodnie</li><li>Przedłużasz, kiedy chcesz</li></ul></div>
   </div>
@@ -249,7 +265,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 <!-- 4. KORZYŚCI -->
 <section style="background:var(--soft)">
  <div class="wrap benefits">
-  <div class="photo"><img src="foto-wygoda.jpg" alt="Ćwiczenia na reformerze w domu" width="1200" height="675" loading="lazy"></div>
+  <div class="photo"><img src="foto-wygoda.jpg" alt="Różne ćwiczenia na reformerze w domu" width="1000" height="717" loading="lazy"></div>
   <div>
    <span class="eyebrow">Wygoda studia w Twoim salonie</span>
    <h2>Ćwicz, kiedy masz ochotę</h2>
@@ -260,6 +276,49 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
     <div class="b"><span class="i">🔁</span><b>Łatwe przedłużenie</b><span>Spodobało się? Zostaje u Ciebie dłużej.</span></div>
     <div class="b"><span class="i">💛</span><b>Bez kupowania</b><span>Żadnych kredytów ani sprzedawania sprzętu potem.</span></div>
    </div>
+  </div>
+ </div>
+</section>
+
+<!-- SPRZĘT -->
+<section id="sprzet" style="background:var(--soft)">
+ <div class="wrap">
+  <div class="center">
+   <span class="eyebrow">Nasze reformery</span>
+   <h2>Wybierz swój reformer</h2>
+   <p class="lead">Prawdziwy sprzęt jak w studiu: wózek na szynach, sprężyny i linki do ćwiczeń rąk i nóg. Każdy egzemplarz czyścimy i sprawdzamy przed dostawą.</p>
+  </div>
+  <div class="models">
+   <article class="card model">
+    <div class="gal" aria-label="Zdjęcia reformera Classic">
+     <div class="gal-track">
+      <img src="classic-1.jpg" alt="Reformer Classic" width="1000" height="700" loading="lazy">
+      <img src="classic-2.jpg" alt="Ćwiczenie podporu na reformerze Classic" width="1000" height="634" loading="lazy">
+      <img src="classic-3.jpg" alt="Ćwiczenie z linkami na reformerze Classic" width="933" height="700" loading="lazy">
+      <img src="classic-4.jpg" alt="Reformer Classic w salonie" width="1000" height="566" loading="lazy">
+      <img src="classic-5.jpg" alt="Złożony reformer Classic stoi przy ścianie" width="1000" height="899" loading="lazy">
+     </div>
+     <button class="gal-btn prev" type="button" aria-label="Poprzednie zdjęcie">‹</button>
+     <button class="gal-btn next" type="button" aria-label="Następne zdjęcie">›</button>
+     <div class="gal-dots"></div>
+    </div>
+    <div class="model-body">
+     <span class="tag soft">Na start</span>
+     <h3>Reformer Classic</h3>
+     <p class="model-price">od <b>200 zł</b> / 2 tygodnie · <b>350 zł</b> / miesiąc</p>
+     <ul class="specs">
+      <li><b>196 × 57 × 73 cm</b><span>wymiary</span></li>
+      <li><b>składany</b><span>do ok. 106 × 57 × 24 cm, stoi przy ścianie</span></li>
+      <li><b>5 sprężyn</b><span>regulowany opór</span></li>
+      <li><b>do 120 kg</b><span>maks. waga ćwiczącej osoby</span></li>
+      <li><b>73 cm</b><span>przesuw wózka</span></li>
+      <li><b>4 pozycje</b><span>drążka na stopy, zagłówek 2 pozycje</span></li>
+      <li><b>stalowa rama</b><span>tapicerka PU, łatwa do przetarcia</span></li>
+      <li><b>32,5 kg</b><span>waga, przenosimy i montujemy my</span></li>
+     </ul>
+     <a class="btn" href="#rezerwacja" data-model="Reformer Classic" data-track="model-classic">Wybieram Classic</a>
+    </div>
+   </article>
   </div>
  </div>
 </section>
@@ -327,19 +386,6 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
  </div>
 </section>
 
-<!-- 8. SPRZĘT -->
-<section style="background:var(--soft)">
- <div class="wrap product">
-  <div class="photo"><img src="reformer.jpg" alt="Reformer do pilatesu Extralink Lifestyle PB1001" width="1200" height="613" loading="lazy"></div>
-  <div>
-   <span class="eyebrow">Sprzęt</span>
-   <h2>Prawdziwy reformer, nie zabawka</h2>
-   <p class="lead">Ten sam typ sprzętu co w studiach pilatesu: wózek na szynach, regulowane sprężyny i linki do ćwiczeń rąk i nóg. Model Extralink Lifestyle PB1001.</p>
-   <p class="lead" style="margin:0">Każdy egzemplarz czyścimy i sprawdzamy przed dostawą.</p>
-  </div>
- </div>
-</section>
-
 <!-- 9. REZERWACJA -->
 <section id="rezerwacja">
  <div class="wrap">
@@ -360,6 +406,10 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
     <input type="hidden" name="from_name" value="Pilates w Domu Kraków">
     <input type="hidden" name="redirect" value="https://pilateswdomukrk.pl/dziekujemy.html">
     <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+    <div><label for="model">Reformer</label>
+     <select id="model" name="reformer" required>
+      <option>Reformer Classic</option>
+     </select></div>
     <div><label for="pakiet">Pakiet</label>
      <select id="pakiet" name="okres" required>
       <option>Test 2 tygodnie – 200 zł</option>
@@ -386,20 +436,6 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
     <p class="safe">🔒 Nic nie płacisz teraz. Płatność dopiero przy dostawie.</p>
    </form>
   </div>
- </div>
-</section>
-
-<!-- 9b. PORADNIK -->
-<section id="poradnik">
- <div class="wrap">
-  <p class="eyebrow">Poradnik</p>
-  <h2>Pilates na reformerze: co warto wiedzieć</h2>
-  <div class="pcards">
-<a class="pcard" href="/poradnik/ile-kosztuje-reformer"><img src="https://images.unsplash.com/photo-1788463127138-d17920230de9?w=600&h=338&fit=crop&crop=entropy&auto=format&q=75" alt="" loading="lazy" width="600" height="338" onerror="this.remove()"><div><b>Ile kosztuje reformer do pilatesu? Zakup, studio czy wynajem</b><span>Pilates na reformerze wciąga, ale szybko robi się drogi. Policzmy, ile naprawdę kosztuje ćwiczenie na…</span></div></a>
-<a class="pcard" href="/poradnik/pilates-na-reformerze"><img src="https://images.unsplash.com/photo-1747238415033-b74eec07eb59?w=600&h=338&fit=crop&crop=entropy&auto=format&q=75" alt="" loading="lazy" width="600" height="338" onerror="this.remove()"><div><b>Pilates na reformerze: co to jest i jakie daje efekty</b><span>Reformer to maszyna, na której ćwiczy się pilates z oporem sprężyn. Wygląda groźnie, ale w praktyce jest…</span></div></a>
-<a class="pcard" href="/poradnik/reformer-dla-poczatkujacych"><img src="https://images.unsplash.com/photo-1747240549807-fc3962949818?w=600&h=338&fit=crop&crop=entropy&auto=format&q=75" alt="" loading="lazy" width="600" height="338" onerror="this.remove()"><div><b>Reformer dla początkujących: jak zacząć w domu</b><span>Nie musisz mieć doświadczenia, żeby zacząć ćwiczyć na reformerze. Wystarczy kilka zasad, odrobina…</span></div></a>
-  </div>
-  <p style="text-align:center;margin-top:18px"><a class="btn ghost" href="/poradnik/">Wszystkie artykuły</a></p>
  </div>
 </section>
 
@@ -493,6 +529,19 @@ document.querySelectorAll('[data-track]').forEach(function(el){
   document.body.appendChild(sc);
  });
 })();
+// Wybór modelu reformera
+document.querySelectorAll('[data-model]').forEach(function(a){a.addEventListener('click',function(){var s=document.getElementById('model');if(s)s.value=a.getAttribute('data-model');});});
+// Galerie zdjęć
+document.querySelectorAll('.gal').forEach(function(g){
+ var t=g.querySelector('.gal-track'),imgs=t.querySelectorAll('img'),d=g.querySelector('.gal-dots');
+ imgs.forEach(function(){d.appendChild(document.createElement('i'));});
+ function idx(){return Math.round(t.scrollLeft/t.clientWidth);}
+ function upd(){var i=idx();d.querySelectorAll('i').forEach(function(x,k){x.className=k===i?'on':'';});}
+ function go(n){var i=(idx()+n+imgs.length)%imgs.length;t.scrollTo({left:i*t.clientWidth,behavior:'smooth'});}
+ g.querySelector('.prev').addEventListener('click',function(){go(-1);});
+ g.querySelector('.next').addEventListener('click',function(){go(1);});
+ t.addEventListener('scroll',upd,{passive:true});upd();
+});
 // Przyciski w cenniku od razu wybierają pakiet
 document.querySelectorAll('[data-pakiet]').forEach(function(a){a.addEventListener('click',function(){var s=document.getElementById('pakiet');if(s)s.value=a.getAttribute('data-pakiet');});});
 // Kalendarz dostępności
