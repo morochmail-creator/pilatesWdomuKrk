@@ -38,6 +38,9 @@ header{position:sticky;top:0;z-index:20;background:rgba(251,246,240,.9);backdrop
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
 .logo{font-family:Fraunces,serif;font-weight:600;text-decoration:none;color:var(--ink);font-size:1.2rem}
 .logo span{color:var(--accent)}
+header nav{display:flex;align-items:center;gap:14px}
+.navlink{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+.navlink:hover{color:var(--accent)}
 header .btn{padding:10px 18px;min-height:0;font-size:.9rem;box-shadow:none}
 /* hero */
 .hero{padding-top:18px;padding-bottom:40px;display:grid;gap:26px}
@@ -175,7 +178,8 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 <body>
 <header><div class="wrap">
  <a class="logo" href="#">Pilates <span>w Domu</span></a>
- <a class="btn" href="#rezerwacja" data-track="nav-rezerwuj">Zarezerwuj</a>
+ <nav><a class="navlink" href="#cennik" data-track="nav-cennik">Cennik</a>
+ <a class="btn" href="#rezerwacja" data-track="nav-rezerwuj">Zarezerwuj</a></nav>
 </div></header>
 
 <main>
@@ -402,8 +406,11 @@ if(TEL){document.documentElement.classList.add('has-tel');var nice=TEL.replace(/
  document.querySelectorAll('.tel-link').forEach(function(a){a.href='tel:+48'+TEL;a.textContent=nice;});
  var bt=document.getElementById('bar-tel');if(bt)bt.href='tel:+48'+TEL;}
 // Dolny pasek chowa się, gdy formularz jest na ekranie
-(function(){var bar=document.getElementById('bar'),f=document.getElementById('rezerwacja');if(!bar||!f||!('IntersectionObserver' in window))return;
- new IntersectionObserver(function(e){bar.classList.toggle('hide',e[0].isIntersecting);},{threshold:.15}).observe(f);})();
+// Pasek na dole chowa się, gdy widać inny przycisk rezerwacji albo formularz (żeby się nie dublowały)
+(function(){var bar=document.getElementById('bar');if(!bar||!('IntersectionObserver' in window))return;
+ var els=[document.getElementById('rezerwacja')].concat([].slice.call(document.querySelectorAll('main a.btn[href="#rezerwacja"]'))).filter(Boolean),vis=new Set();
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?vis.add(e.target):vis.delete(e.target);});bar.classList.toggle('hide',vis.size>0);},{rootMargin:'0px 0px -70px 0px'});
+ els.forEach(function(el){io.observe(el);});})();
 // Zliczanie kliknięć w ważne przyciski (działa z GoatCounter i/lub Meta Pixel, jeśli są wklejone)
 document.querySelectorAll('[data-track]').forEach(function(el){
  el.addEventListener('click',function(){
