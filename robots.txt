@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /dziekujemy
+Disallow: /REKLAMA.md
+Disallow: /INSTRUKCJA.md
+
+Sitemap: https://pilateswdomukrk.pl/sitemap.xml

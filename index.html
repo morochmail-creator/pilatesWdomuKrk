@@ -54,6 +54,12 @@ header .wrap{display:flex;justify-content:space-between;align-items:center;heigh
 header nav{display:flex;align-items:center;gap:14px}
 .navlink{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
 .navlink:hover{color:var(--accent)}
+.navlink.desk{display:none}@media(min-width:620px){.navlink.desk{display:inline}}
+.pcards{display:grid;gap:14px;margin-top:22px}
+@media(min-width:860px){.pcards{grid-template-columns:repeat(3,1fr)}}
+.pcard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:var(--shadow)}
+.pcard img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--soft)}
+.pcard div{padding:16px 18px}.pcard b{font-family:Fraunces,serif;font-size:1.12rem;display:block;margin-bottom:6px;font-weight:600}.pcard span{color:var(--muted);font-size:.93rem}
 header .btn{padding:10px 18px;min-height:0;font-size:.9rem;box-shadow:none}
 /* hero */
 .hero{padding-top:18px;padding-bottom:40px;display:grid;gap:26px}
@@ -157,7 +163,7 @@ form .btn{width:100%}
 .faq details{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:10px}
 .faq p{margin:10px 0 0;color:var(--muted)}
 /* final cta */
-.final{background:linear-gradient(150deg,#c0714f,#a35a3b);color:#fff;border-radius:28px;padding:38px 24px;text-align:center}
+.final{background:linear-gradient(150deg,rgba(192,113,79,.93),rgba(163,90,59,.9)),url("https://images.unsplash.com/photo-1747239202356-764770773c9a?w=1200&h=700&fit=crop&auto=format&q=70") center/cover,#b0623f;color:#fff;border-radius:28px;padding:38px 24px;text-align:center}
 .final h2{color:#fff}
 .final p{opacity:.9;margin:0 0 22px}
 .final .btn{background:#fff;color:var(--accent-dark);box-shadow:none}
@@ -191,7 +197,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 <body>
 <header><div class="wrap">
  <a class="logo" href="#"><img src="logo-znak.png" alt="" width="40" height="30"><b>Pilates <span>w Domu</span></b></a>
- <nav><a class="navlink" href="#cennik" data-track="nav-cennik">Cennik</a>
+ <nav><a class="navlink desk" href="/poradnik/">Poradnik</a><a class="navlink" href="#cennik" data-track="nav-cennik">Cennik</a>
  <a class="btn" href="#rezerwacja" data-track="nav-rezerwuj">Zarezerwuj</a></nav>
 </div></header>
 
@@ -383,6 +389,20 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
  </div>
 </section>
 
+<!-- 9b. PORADNIK -->
+<section id="poradnik">
+ <div class="wrap">
+  <p class="eyebrow">Poradnik</p>
+  <h2>Pilates na reformerze: co warto wiedzieć</h2>
+  <div class="pcards">
+<a class="pcard" href="/poradnik/ile-kosztuje-reformer"><img src="https://images.unsplash.com/photo-1788463127138-d17920230de9?w=600&h=338&fit=crop&crop=entropy&auto=format&q=75" alt="" loading="lazy" width="600" height="338" onerror="this.remove()"><div><b>Ile kosztuje reformer do pilatesu? Zakup, studio czy wynajem</b><span>Pilates na reformerze wciąga, ale szybko robi się drogi. Policzmy, ile naprawdę kosztuje ćwiczenie na…</span></div></a>
+<a class="pcard" href="/poradnik/pilates-na-reformerze"><img src="https://images.unsplash.com/photo-1747238415033-b74eec07eb59?w=600&h=338&fit=crop&crop=entropy&auto=format&q=75" alt="" loading="lazy" width="600" height="338" onerror="this.remove()"><div><b>Pilates na reformerze: co to jest i jakie daje efekty</b><span>Reformer to maszyna, na której ćwiczy się pilates z oporem sprężyn. Wygląda groźnie, ale w praktyce jest…</span></div></a>
+<a class="pcard" href="/poradnik/reformer-dla-poczatkujacych"><img src="https://images.unsplash.com/photo-1747240549807-fc3962949818?w=600&h=338&fit=crop&crop=entropy&auto=format&q=75" alt="" loading="lazy" width="600" height="338" onerror="this.remove()"><div><b>Reformer dla początkujących: jak zacząć w domu</b><span>Nie musisz mieć doświadczenia, żeby zacząć ćwiczyć na reformerze. Wystarczy kilka zasad, odrobina…</span></div></a>
+  </div>
+  <p style="text-align:center;margin-top:18px"><a class="btn ghost" href="/poradnik/">Wszystkie artykuły</a></p>
+ </div>
+</section>
+
 <!-- 10. FAQ -->
 <section style="background:var(--soft)">
  <div class="wrap faq">
@@ -406,7 +426,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 </section>
 </main>
 
-<footer><div class="wrap"><img class="flogo" src="logo.png" alt="Pilates w Domu Kraków – logo" loading="lazy">Pilates w Domu · Wynajem reformerów do pilatesu · Kraków i okolice<span data-tel-only> · <a class="tel-link" href="#"></a></span></div></footer>
+<footer><div class="wrap"><img class="flogo" src="logo.png" alt="Pilates w Domu Kraków – logo" loading="lazy">Pilates w Domu · Wynajem reformerów do pilatesu · Kraków i okolice<br><a href="/poradnik/">Poradnik o pilatesie na reformerze</a> · <a href="#cennik">Cennik</a><span data-tel-only> · <a class="tel-link" href="#"></a></span></div></footer>
 
 <div class="bar" id="bar">
  <a class="btn ghost" data-tel-only href="#" id="bar-tel" aria-label="Zadzwoń">📞</a>
