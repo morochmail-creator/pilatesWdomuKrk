@@ -57,6 +57,17 @@ header nav{display:flex;align-items:center;gap:14px}
 .navlink:hover{color:var(--accent)}
 .navlink.desk{display:none}@media(min-width:620px){.navlink.desk{display:inline}}
 header .btn{padding:10px 18px;min-height:0;font-size:.9rem;box-shadow:none}
+/* tło zmieniające się przy przewijaniu */
+.soft{background:rgba(246,235,225,.55)}
+.bgfx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;--p:0}
+.bgfx i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.6;will-change:transform}
+.bgfx .b1{width:70vmax;height:70vmax;background:#f8d2bb;left:-25vmax;top:-20vmax;transform:translate(calc(var(--p)*30vw),calc(var(--p)*70vh)) scale(calc(1 + var(--p)*.25))}
+.bgfx .b2{width:55vmax;height:55vmax;background:#d3e5d0;right:-22vmax;top:30vh;transform:translate(calc(var(--p)*-25vw),calc(var(--p)*-45vh))}
+.bgfx .b3{width:50vmax;height:50vmax;background:#f3cfd6;left:-10vmax;bottom:-30vmax;opacity:calc(.25 + var(--p)*.5);transform:translate(calc(var(--p)*40vw),calc(var(--p)*-30vh))}
+.bgfx svg{position:absolute;inset:0;width:100%;height:100%}
+.bgfx path{fill:none;stroke:var(--accent);stroke-width:1.4;opacity:.22;stroke-dasharray:3000;stroke-dashoffset:calc(3000 - var(--p)*3000)}
+.bgfx path+path{stroke:var(--sage);opacity:.18;stroke-dashoffset:calc(3000 - var(--p)*2600)}
+@media (prefers-reduced-motion:reduce){.bgfx i,.bgfx path{transform:none!important;stroke-dashoffset:0!important}}
 /* hero */
 .hero{padding-top:18px;padding-bottom:40px;display:grid;gap:26px}
 .hero .photo{aspect-ratio:16/9}
@@ -213,6 +224,8 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 </style>
 </head>
 <body>
+<div class="bgfx" id="bgfx" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i>
+<svg viewBox="0 0 1000 1000" preserveAspectRatio="none"><path d="M-50 120 C 200 40, 380 260, 560 180 S 900 60, 1050 220 S 820 520, 600 480 S 180 560, 120 760 S 520 980, 1050 900"/><path d="M1050 80 C 820 160, 760 340, 520 330 S 120 300, -50 470 S 300 760, 560 700 S 960 740, 980 1050"/></svg></div>
 <header><div class="wrap">
  <a class="logo" href="#"><img src="logo-znak.png" alt="" width="40" height="30"><b>Pilates <span>w Domu</span></b></a>
  <nav><a class="navlink desk" href="/poradnik/">Poradnik</a><a class="navlink desk" href="#sprzet" data-track="nav-sprzet">Sprzęt</a><a class="navlink" href="#cennik" data-track="nav-cennik">Cennik</a>
@@ -241,7 +254,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 </div>
 
 <!-- SPRZĘT -->
-<section id="sprzet" style="background:var(--soft)">
+<section id="sprzet" class="soft">
  <div class="wrap">
   <div class="center">
    <span class="eyebrow">Nasze reformery</span>
@@ -313,7 +326,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 </section>
 
 <!-- JAK TO DZIAŁA + ZASADY -->
-<section id="zasady" style="background:var(--soft)">
+<section id="zasady" class="soft">
  <div class="wrap">
   <div class="center">
    <span class="eyebrow">Jak to działa</span>
@@ -391,7 +404,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 </section>
 
 <!-- 10. FAQ -->
-<section style="background:var(--soft)">
+<section class="soft">
  <div class="wrap faq">
   <div class="center"><span class="eyebrow">Pytania</span><h2 style="margin-bottom:22px">Często pytacie</h2></div>
   <details><summary>Czy to dobre dla początkujących?</summary><p>Tak. Przy dostawie pokazujemy podstawy i to, jak bezpiecznie regulować sprężyny.</p></details>
@@ -471,6 +484,10 @@ document.querySelectorAll('[data-track]').forEach(function(el){
   document.body.appendChild(sc);
  });
 })();
+// Tło reaguje na przewijanie
+(function(){var el=document.getElementById('bgfx');if(!el||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var t=0;
+ function f(){t=0;var h=document.documentElement.scrollHeight-innerHeight;el.style.setProperty('--p',h>0?Math.min(1,scrollY/h).toFixed(4):0);}
+ addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(f);},{passive:true});addEventListener('resize',f);f();})();
 // Wybór modelu reformera
 document.querySelectorAll('[data-model]').forEach(function(a){a.addEventListener('click',function(){var s=document.getElementById('model');if(s)s.value=a.getAttribute('data-model');});});
 // Galerie zdjęć
