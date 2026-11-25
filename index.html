@@ -371,7 +371,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
    <li><b>Ćwiczysz</b><span>Na koniec odbieramy sprzęt. Albo przedłużasz, jeśli wsiąkniesz.</span></li>
   </ol>
   <ul class="rules">
-   <li><span class="ic">🕗</span><div><b>Dostawa pn–pt</b><span>Rano 8–12 albo wieczorem 16–18. Wybierasz w formularzu.</span></div></li>
+   <li><span class="ic">🕗</span><div><b>Dostawa codziennie</b><span>Rano 8–12 albo wieczorem 16–18. Wybierasz w formularzu.</span></div></li>
    <li><span class="ic">📍</span><div><b>W Krakowie gratis</b><span>Poza obszarem: +50 zł za dostawę i odbiór łącznie.</span></div></li>
    <li><span class="ic">💵</span><div><b>Tylko gotówka</b><span>Płacisz przy dostawie, nie wcześniej.</span></div></li>
    <li><span class="ic">📝</span><div><b>Bez kaucji</b><span>Przy dostawie krótka umowa, przygotuj dowód osobisty.</span></div></li>
@@ -479,7 +479,7 @@ document.querySelectorAll('[data-track]').forEach(function(el){
  });
 });
 // Nie pozwól wybrać daty z przeszłości
-// Dzień dostawy: od jutra, tylko pn–pt
+// Dzień dostawy: od jutra (od 7 grudnia), także sobota i niedziela
 (function(){
  var d=document.getElementById('od'),err=document.getElementById('od-err');if(!d)return;
  var t=new Date();t.setDate(t.getDate()+1);var st=new Date(2026,11,7,12);if(t<st)t=st;d.min=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
