@@ -159,12 +159,12 @@ details[open] summary::after{content:"–"}
 .product .photo{background:#fff;padding:14px}
 .product .photo img{object-fit:contain}
 /* booking */
-.booking{display:grid;gap:22px}
+.booking{display:grid;gap:22px;grid-template-columns:minmax(0,1fr)}
 .kal{padding:0;overflow:hidden}
 .kal-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-family:Fraunces,serif;font-size:1.15rem}
 .kal-head button{border:1px solid var(--line);background:#fff;border-radius:12px;width:42px;height:42px;cursor:pointer;font-size:1.2rem;color:var(--ink)}
 .kal-head button:disabled{opacity:.35}
-.kal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;padding:0 12px 12px}
+.kal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;padding:0 12px 12px}
 .kal-grid .dn{font-size:.72rem;color:var(--muted);text-align:center;padding:4px 0;font-weight:700}
 .kal-grid .d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:12px;background:#e9f2e7;color:#2f5e2e;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:.92rem}
 .kal-grid .d.free:hover{background:#d3e7cf}
@@ -176,13 +176,13 @@ details[open] summary::after{content:"–"}
 .kal-grid .d.sel{background:var(--accent);color:#fff}
 .kal-leg{display:flex;flex-wrap:wrap;gap:14px;padding:4px 16px 16px;font-size:.82rem;color:var(--muted)}
 .kal-leg i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
-form{display:grid;gap:14px}
+form{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
 label{display:block;font-size:.88rem;font-weight:700;margin-bottom:6px}
-input,select,textarea{width:100%;padding:14px 15px;border:1.5px solid var(--line);border-radius:14px;font:inherit;font-size:16px;background:#fff;color:var(--ink);appearance:none;-webkit-appearance:none}
+input,select,textarea{width:100%;min-width:0;max-width:100%;padding:14px 15px;border:1.5px solid var(--line);border-radius:14px;font:inherit;font-size:16px;background:#fff;color:var(--ink);appearance:none;-webkit-appearance:none}
 select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(192,113,79,.12)}
 textarea{min-height:84px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
 .check{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:.9rem}
 .check input{width:20px;height:20px;flex:0 0 20px;margin-top:2px;appearance:auto;-webkit-appearance:checkbox;padding:0;accent-color:var(--accent)}
 .hp{display:none}
@@ -247,6 +247,12 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
 }
 @media (max-width:859px){.hero-txt .sub,.hero-txt .btn.ghost{display:none}.hero2{min-height:430px}.hero-txt{padding-top:28px}.hero-ov{background:linear-gradient(180deg,rgba(40,25,20,.35) 0%,rgba(40,25,20,.45) 45%,rgba(40,25,20,.8) 100%)}.hero-txt .price-pill{margin-bottom:14px}.hero-txt{padding-bottom:22px}}
 @media (min-width:860px){.hero-txt h1{max-width:12ch}.hero-txt>*{max-width:540px}}
+@media (max-width:380px){.logo{font-size:.85rem}.logo img{height:20px}header nav{gap:8px}.navlink{font-size:.8rem}header .wrap .btn{padding:7px 10px;font-size:.78rem}}
+@media (max-width:600px){.prices{grid-template-columns:1fr 1fr;gap:10px}.price-card{padding:16px 14px}.price-card h3{font-size:1.1rem;margin:6px 0 2px}.price{font-size:2rem;margin-top:2px}.price small{display:block;font-size:.8rem;margin-top:-4px}.price-card ul{display:none}.price-card{display:flex;flex-direction:column}.price-card .btn{padding:12px 6px;font-size:.85rem;margin-top:auto}.price{margin-bottom:12px}.old-price{font-size:.95rem}}
+@media (max-width:420px){.row2.stack{grid-template-columns:minmax(0,1fr)}}
+header .logo,header .navlink{min-height:44px;display:inline-flex;align-items:center}
+.foot a,footer a{display:inline-block;padding:6px 2px}
+.check input{width:24px;height:24px;flex:0 0 24px}
 </style>
 </head>
 <body>
@@ -416,7 +422,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
       <option>Miesiąc – 350 zł</option>
       <option>Dłużej / kilka sztuk – zapytam</option>
      </select></div>
-    <div class="row2">
+    <div class="row2 stack">
      <div><label for="od">Dzień dostawy</label><input id="od" name="data_dostawy" type="date" required></div>
      <div><label for="okno">Godzina dostawy</label>
       <select id="okno" name="okno_dostawy" required><option value="">Wybierz godzinę</option><option>8–12</option><option>16–18</option></select></div>
@@ -433,7 +439,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
     </div>
     <div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" placeholder="np. anna@example.com" required></div>
     <div><label for="uwagi">Uwagi <span style="font-weight:400;color:var(--muted)">(piętro, winda)</span></label><textarea id="uwagi" name="uwagi"></textarea></div>
-    <label class="check"><input type="checkbox" name="zgoda" required> Akceptuję zasady: płatność gotówką przy dostawie i krótka <a href="/umowa/" target="_blank" rel="noopener">umowa najmu</a> (dowód osobisty). Znam <a href="/polityka-prywatnosci/" target="_blank" rel="noopener">politykę prywatności</a>.</label>
+    <label class="check"><input type="checkbox" name="zgoda" required><span>Akceptuję zasady: płatność gotówką przy dostawie i krótka <a href="/umowa/" target="_blank" rel="noopener">umowa najmu</a> (dowód osobisty). Znam <a href="/polityka-prywatnosci/" target="_blank" rel="noopener">politykę prywatności</a>.</span></label>
     <button class="btn" type="submit" data-track="formularz-wyslij">Wyślij rezerwację</button>
     <p class="safe">🔒 Nic nie płacisz teraz. Płatność dopiero przy dostawie.</p>
    </form>
