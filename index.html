@@ -168,6 +168,8 @@ details[open] summary::after{content:"–"}
 .kal-grid .dn{font-size:.72rem;color:var(--muted);text-align:center;padding:4px 0;font-weight:700}
 .kal-grid .d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:12px;background:#e9f2e7;color:#2f5e2e;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:.92rem}
 .kal-grid .d.free:hover{background:#d3e7cf}
+.kal-grid .d.wk{background:#fdf1d3;box-shadow:inset 0 0 0 1px #ecd18a}.kal-grid .d.wk:hover{background:#f8e4b0}
+#wk-note{display:none;background:#fdf1d3;border:1px solid #ecd18a;border-radius:12px;padding:10px 14px;margin:8px 0;font-size:.92rem}
 .kal-grid .d.we{background:#fbe9e6;color:#c8463a;text-decoration:line-through;cursor:not-allowed;font-weight:500}
 .kal-grid .d.busy{background:#d9534f;color:#fff;cursor:not-allowed}
 .kal-grid .d.past{background:transparent;color:#cdbfb7;cursor:default;font-weight:400}
@@ -396,7 +398,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
     <div class="kal-label">📅 Wybierz dzień dostawy <span>dostawy od 7 grudnia 2026</span></div>
     <div class="kal-head"><button type="button" id="kal-prev" aria-label="Poprzedni miesiąc">‹</button><span id="kal-title"></span><button type="button" id="kal-next" aria-label="Następny miesiąc">›</button></div>
     <div class="kal-grid" id="kal-grid"></div>
-    <div class="kal-leg"><span><i style="background:#e9f2e7;box-shadow:inset 0 0 0 1px #a9cfa3"></i>wybierz dzień</span></div>
+    <div class="kal-leg"><span><i style="background:#e9f2e7;box-shadow:inset 0 0 0 1px #a9cfa3"></i>wybierz dzień</span><span><i style="background:#fdf1d3;box-shadow:inset 0 0 0 1px #ecd18a"></i>weekend: +20 zł</span></div>
    </div>
    <form class="card" name="rezerwacja" method="POST" action="https://api.web3forms.com/submit">
     <input type="hidden" name="access_key" value="9cc5b506-1f28-4783-a472-7d3cbb677843">
@@ -420,6 +422,7 @@ footer{padding:30px 0 20px;color:var(--muted);font-size:.88rem;text-align:center
       <select id="okno" name="okno_dostawy" required><option value="">Wybierz godzinę</option><option>8–12</option><option>16–18</option></select></div>
     </div>
     <div class="err" id="od-err">Dostawy od 7 grudnia 2026.</div>
+    <div id="wk-note">📅 <b>Dostawa w weekend: +20 zł.</b> Odbiór jest w tej cenie.</div><input type="hidden" name="dodatek_weekend" id="wk-val" value="nie">
     <div><label for="dost">Dostawa</label>
      <select id="dost" name="dostawa"><option>W żółtym obszarze – gratis</option><option>Poza żółtym obszarem – +50 zł (dostawa i odbiór)</option><option>Odbiorę sam(a)</option></select></div>
     <details class="dmapa"><summary>🗺️ Pokaż mapkę dostaw</summary><div class="dm-wrap"><img src="mapa-dostawy.jpg" alt="Mapa dostawy: w żółtym obszarze Krakowa dostawa gratis" width="1400" height="743" loading="lazy"><div class="dm-leg"><span><i style="background:#f5b800"></i>Żółty obszar: dostawa i odbiór gratis</span><span><i style="background:#fff;border:1px solid #888"></i>Poza żółtym: +50 zł za dostawę i odbiór łącznie</span></div></div></details>
@@ -483,8 +486,8 @@ document.querySelectorAll('[data-track]').forEach(function(el){
 (function(){
  var d=document.getElementById('od'),err=document.getElementById('od-err');if(!d)return;
  var t=new Date();t.setDate(t.getDate()+1);var st=new Date(2026,11,7,12);if(t<st)t=st;d.min=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
- function check(){var v=d.value;if(!v){err.style.display='none';d.setCustomValidity('');return;}
-  var wd=new Date(v+'T12:00:00').getDay();var bad=v<d.min;
+ function check(){var v=d.value;if(!v){err.style.display='none';d.setCustomValidity('');var n0=document.getElementById('wk-note'),h0=document.getElementById('wk-val');if(n0)n0.style.display='none';if(h0)h0.value='nie';return;}
+  var wd=new Date(v+'T12:00:00').getDay();var bad=v<d.min;var wk=(wd===0||wd===6)&&!bad;var n=document.getElementById('wk-note'),h=document.getElementById('wk-val');if(n)n.style.display=wk?'block':'none';if(h)h.value=wk?'tak: +20 zł':'nie';
   err.style.display=bad?'block':'none';d.setCustomValidity(bad?'Dostawy od 7 grudnia 2026.':'');}
  d.addEventListener('change',check);d.addEventListener('input',check);
 })();
@@ -563,8 +566,9 @@ var ZAJETE=[];
    if(dt<=now){cls='past';lab='minęło';}
    else if(dt<START){cls='past';lab='przed startem (7 grudnia)';}
    else if(busy[key]){cls='busy';lab='zajęte';}
+   else if(wd===0||wd===6){cls='free wk';lab='weekend: +20 zł';}
    else {cls='free';lab='wolne';}
-   h+='<button type="button" class="d '+cls+'" data-d="'+key+'" title="'+lab+'" aria-label="'+d+' '+M[m]+': '+lab+'"'+(cls==='free'?'':' disabled')+'>'+d+'</button>';
+   h+='<button type="button" class="d '+cls+'" data-d="'+key+'" title="'+lab+'" aria-label="'+d+' '+M[m]+': '+lab+'"'+(cls.indexOf('free')===0?'':' disabled')+'>'+d+'</button>';
   }
   grid.innerHTML=h;
  }
